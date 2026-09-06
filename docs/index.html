@@ -18,6 +18,8 @@
       <a href="#about" class="nav__link" data-section="about">About</a>
       <a href="#how" class="nav__link" data-section="how">How it works</a>
       <a href="#features" class="nav__link" data-section="features">Features</a>
+      <a href="#use-cases" class="nav__link" data-section="use-cases">Use cases</a>
+      <a href="#faq" class="nav__link" data-section="faq">FAQ</a>
       <a href="#socials" class="nav__link" data-section="socials">Socials</a>
     </nav>
     <button class="nav__burger" id="nav-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
@@ -27,6 +29,8 @@
       <a href="#about" class="nav__link" data-section="about">About</a>
       <a href="#how" class="nav__link" data-section="how">How it works</a>
       <a href="#features" class="nav__link" data-section="features">Features</a>
+      <a href="#use-cases" class="nav__link" data-section="use-cases">Use cases</a>
+      <a href="#faq" class="nav__link" data-section="faq">FAQ</a>
       <a href="#socials" class="nav__link" data-section="socials">Socials</a>
     </nav>
   </header>
@@ -34,35 +38,37 @@
   <main>
     <!-- HERO -->
     <section class="hero" id="top">
+      <div class="hero__glow" aria-hidden="true"></div>
       <div class="container hero__grid">
         <div class="hero__copy fade-up">
           <div class="hero__brand">
-            <div class="lottie hero__logo" data-src="lottie/duck.json" role="img" aria-label="Fluppy duck mascot"></div>
+            <div class="lottie hero__logo float-soft" data-src="lottie/duck.json" data-hover-play role="img" aria-label="Fluppy duck mascot"></div>
             <h1 class="hero__wordmark">FLUPPY</h1>
           </div>
-          <p class="hero__pitch">
+          <p class="hero__eyebrow fade-up" style="--delay: .05s">From tma-ai · Telegram Mini App + bot</p>
+          <p class="hero__pitch fade-up" style="--delay: .08s">
             AI assistant for running Telegram channels — Mini App + bot in one place.
           </p>
-          <p class="hero__lede">
+          <p class="hero__lede fade-up" style="--delay: .12s">
             Fluppy collects relevant content, adapts text to your channel’s style, sends posts
             for approval, and learns from audience reactions and past posts.
           </p>
-          <p class="hero__lede">
+          <p class="hero__lede fade-up" style="--delay: .16s">
             Privacy-first by design. You stay in control of every publish.
           </p>
-          <div class="hero__ctas">
+          <div class="hero__ctas fade-up" style="--delay: .2s">
             <a class="btn btn--primary" href="#open">Open Fluppy</a>
             <a class="btn btn--tinted" href="#connect">Connect channel</a>
           </div>
         </div>
-        <div class="hero__visual fade-up" style="--delay: .1s">
-          <div class="hero__visual-frame">
+        <div class="hero__visual fade-up" style="--delay: .14s" data-parallax>
+          <div class="hero__visual-frame float-gentle">
             <div class="lottie lottie--hero" data-src="lottie/onb_hiw_hero.json" role="img" aria-label="Fluppy product animation"></div>
           </div>
         </div>
       </div>
 
-      <div class="container stats fade-up" style="--delay: .2s">
+      <div class="container stats fade-up" style="--delay: .24s">
         <div class="stats__item">
           <div class="stats__value" data-count="1200" data-suffix="+">0</div>
           <div class="stats__label">Channels connected</div>
@@ -85,32 +91,57 @@
     <!-- BUILT FOR TELEGRAM -->
     <section class="strip" id="built">
       <div class="container">
-        <h2 class="section-title">Built for Telegram</h2>
+        <h2 class="section-title fade-up">Built for Telegram</h2>
         <div class="strip__row">
-          <div class="strip__item">
-            <div class="lottie lottie--strip" data-src="lottie/how_telegram.json" aria-hidden="true"></div>
+          <div class="strip__item fade-up" style="--delay: 0s">
+            <div class="lottie lottie--strip" data-src="lottie/how_telegram.json" data-hover-play aria-hidden="true"></div>
             <span>Telegram</span>
           </div>
-          <div class="strip__item">
-            <div class="lottie lottie--strip" data-src="lottie/how_megaphone.json" aria-hidden="true"></div>
+          <div class="strip__item fade-up" style="--delay: .05s">
+            <div class="lottie lottie--strip" data-src="lottie/how_megaphone.json" data-hover-play aria-hidden="true"></div>
             <span>Mini Apps</span>
           </div>
-          <div class="strip__item">
-            <div class="lottie lottie--strip" data-src="lottie/how_gear.json" aria-hidden="true"></div>
+          <div class="strip__item fade-up" style="--delay: .1s">
+            <div class="lottie lottie--strip" data-src="lottie/how_gear.json" data-hover-play aria-hidden="true"></div>
             <span>Bots</span>
           </div>
-          <div class="strip__item">
-            <div class="lottie lottie--strip" data-src="lottie/forum_check_fluppy.json" aria-hidden="true"></div>
+          <div class="strip__item fade-up" style="--delay: .15s">
+            <div class="lottie lottie--strip" data-src="lottie/forum_check_fluppy.json" data-hover-play aria-hidden="true"></div>
             <span>Channels</span>
           </div>
-          <div class="strip__item">
-            <div class="lottie lottie--strip" data-src="lottie/topic_ai.json" aria-hidden="true"></div>
+          <div class="strip__item fade-up" style="--delay: .2s">
+            <div class="lottie lottie--strip" data-src="lottie/topic_ai.json" data-hover-play aria-hidden="true"></div>
             <span>AI drafts</span>
           </div>
-          <div class="strip__item">
-            <div class="lottie lottie--strip" data-src="lottie/forum_check_telegram.json" aria-hidden="true"></div>
+          <div class="strip__item fade-up" style="--delay: .25s">
+            <div class="lottie lottie--strip" data-src="lottie/forum_check_telegram.json" data-hover-play aria-hidden="true"></div>
             <span>Privacy-first</span>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST / PRIVACY STRIP -->
+    <section class="section trust" id="trust">
+      <div class="container">
+        <div class="trust__band fade-up">
+          <div class="trust__mascot">
+            <div class="lottie lottie--trust float-soft" data-src="lottie/duck.json" data-hover-play aria-hidden="true"></div>
+          </div>
+          <div class="trust__copy">
+            <h2 class="trust__title">Privacy-first. You stay in control.</h2>
+            <p class="trust__text">
+              Fluppy only uses what’s needed to run your channel workflows. Drafts land in your chat
+              for approval — nothing publishes without you. No tokenomics, no dark patterns — just a
+              practical AI assistant for Telegram creators.
+            </p>
+          </div>
+          <ul class="trust__pills" aria-label="Trust highlights">
+            <li class="trust__pill fade-up" style="--delay: .05s">Approval before publish</li>
+            <li class="trust__pill fade-up" style="--delay: .1s">Your channel voice</li>
+            <li class="trust__pill fade-up" style="--delay: .15s">Clear data controls</li>
+            <li class="trust__pill fade-up" style="--delay: .2s">No invented tokens</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -118,9 +149,15 @@
     <!-- ABOUT -->
     <section class="section" id="about">
       <div class="container">
-        <h2 class="section-title">About Fluppy</h2>
-        <div class="about-grid">
+        <h2 class="section-title fade-up">About Fluppy</h2>
+        <p class="section-lede fade-up" style="--delay: .05s">
+          An AI co-pilot that lives inside Telegram — so drafting, review, and publish stay where your audience already is.
+        </p>
+        <div class="about-grid stagger">
           <article class="card about-card fade-up">
+            <div class="about-card__icon">
+              <div class="lottie lottie--about" data-src="lottie/how_telegram.json" aria-hidden="true"></div>
+            </div>
             <h3>What is Fluppy?</h3>
             <p>
               Fluppy is an AI co-pilot for Telegram channel owners. It lives inside Telegram
@@ -129,6 +166,9 @@
             </p>
           </article>
           <article class="card about-card fade-up" style="--delay: .05s">
+            <div class="about-card__icon">
+              <div class="lottie lottie--about" data-src="lottie/onb_help_rewrite.json" aria-hidden="true"></div>
+            </div>
             <h3>Content that fits your channel</h3>
             <p>
               Fluppy watches topics you care about, then rewrites drafts in your channel’s style —
@@ -136,6 +176,9 @@
             </p>
           </article>
           <article class="card about-card fade-up" style="--delay: .1s">
+            <div class="about-card__icon">
+              <div class="lottie lottie--about" data-src="lottie/mode_approval.json" aria-hidden="true"></div>
+            </div>
             <h3>You stay in control</h3>
             <p>
               Every post is sent for your approval. Edit, schedule, or reject with one tap.
@@ -143,6 +186,9 @@
             </p>
           </article>
           <article class="card about-card fade-up" style="--delay: .15s">
+            <div class="about-card__icon">
+              <div class="lottie lottie--about" data-src="lottie/forum_check_telegram.json" aria-hidden="true"></div>
+            </div>
             <h3>Privacy-first AI</h3>
             <p>
               Built with privacy in mind: only the data needed to run your channel workflows,
@@ -156,8 +202,11 @@
     <!-- HOW IT WORKS -->
     <section class="section" id="how">
       <div class="container">
-        <h2 class="section-title">How it works</h2>
-        <div class="how-grid">
+        <h2 class="section-title fade-up">How it works</h2>
+        <p class="section-lede fade-up" style="--delay: .05s">
+          Four steps from idea to published post — always with you in the loop.
+        </p>
+        <div class="how-grid stagger">
           <article class="how-card fade-up">
             <div class="how-card__num">01</div>
             <h3 class="how-card__title">Collect</h3>
@@ -183,14 +232,49 @@
             <div class="lottie how-card__art" data-src="lottie/onb_help_publish.json" aria-hidden="true"></div>
           </article>
         </div>
+
+        <!-- Expanded timeline detail -->
+        <ol class="timeline fade-up" style="--delay: .1s" aria-label="Workflow detail">
+          <li class="timeline__step fade-up" style="--delay: .05s">
+            <div class="timeline__marker" aria-hidden="true"></div>
+            <div class="timeline__body">
+              <h3>Connect your channel</h3>
+              <p>Link Fluppy in Telegram, pick the channel you run, and set the topics you care about.</p>
+            </div>
+          </li>
+          <li class="timeline__step fade-up" style="--delay: .1s">
+            <div class="timeline__marker" aria-hidden="true"></div>
+            <div class="timeline__body">
+              <h3>Fluppy gathers &amp; drafts</h3>
+              <p>Relevant material is collected and rewritten to match your voice — ready as a draft, not a live post.</p>
+            </div>
+          </li>
+          <li class="timeline__step fade-up" style="--delay: .15s">
+            <div class="timeline__marker" aria-hidden="true"></div>
+            <div class="timeline__body">
+              <h3>You approve in chat</h3>
+              <p>Drafts arrive where you already work. Edit wording, schedule a slot, or skip — one tap either way.</p>
+            </div>
+          </li>
+          <li class="timeline__step fade-up" style="--delay: .2s">
+            <div class="timeline__marker" aria-hidden="true"></div>
+            <div class="timeline__body">
+              <h3>Audience feedback loops back</h3>
+              <p>Reactions and past winners teach Fluppy what resonates, so the next draft is closer to what your readers love.</p>
+            </div>
+          </li>
+        </ol>
       </div>
     </section>
 
     <!-- FEATURES -->
     <section class="section" id="features">
       <div class="container">
-        <h2 class="section-title">Features</h2>
-        <div class="features-grid">
+        <h2 class="section-title fade-up">Features</h2>
+        <p class="section-lede fade-up" style="--delay: .05s">
+          Everything you need to keep a Telegram channel sharp — without leaving Telegram.
+        </p>
+        <div class="features-grid stagger">
           <article class="feature-card fade-up">
             <div class="feature-card__media">
               <div class="lottie lottie--feature" data-src="lottie/onb_help_collect.json" aria-hidden="true"></div>
@@ -234,24 +318,176 @@
       </div>
     </section>
 
+    <!-- USE CASES -->
+    <section class="section" id="use-cases">
+      <div class="container">
+        <h2 class="section-title fade-up">Who Fluppy is for</h2>
+        <p class="section-lede fade-up" style="--delay: .05s">
+          Whether you run one channel or many — Fluppy fits how you already work in Telegram.
+        </p>
+        <div class="usecase-grid stagger">
+          <article class="usecase-card fade-up">
+            <div class="usecase-card__art">
+              <div class="lottie lottie--usecase" data-src="lottie/how_megaphone.json" data-hover-play aria-hidden="true"></div>
+            </div>
+            <h3>Channel owners</h3>
+            <p>
+              Keep a steady cadence without burning evenings on research and rewrite. Fluppy drafts;
+              you approve when it feels right.
+            </p>
+            <ul class="usecase-card__list">
+              <li>Topic-matched ideas</li>
+              <li>Voice-consistent posts</li>
+              <li>One-tap approval</li>
+            </ul>
+          </article>
+          <article class="usecase-card fade-up" style="--delay: .08s">
+            <div class="usecase-card__art">
+              <div class="lottie lottie--usecase" data-src="lottie/how_gear.json" data-hover-play aria-hidden="true"></div>
+            </div>
+            <h3>Agencies</h3>
+            <p>
+              Scale client channels with a repeatable collect → adapt → approve loop — without
+              losing the human final say each brand expects.
+            </p>
+            <ul class="usecase-card__list">
+              <li>Consistent workflows</li>
+              <li>Client-ready drafts</li>
+              <li>Clear ownership of publish</li>
+            </ul>
+          </article>
+          <article class="usecase-card fade-up" style="--delay: .16s">
+            <div class="usecase-card__art">
+              <div class="lottie lottie--usecase" data-src="lottie/topic_ai.json" data-hover-play aria-hidden="true"></div>
+            </div>
+            <h3>Solo creators</h3>
+            <p>
+              Ship more of your voice with less blank-page time. Fluppy handles the busywork so you
+              can focus on the posts that matter.
+            </p>
+            <ul class="usecase-card__list">
+              <li>Faster first drafts</li>
+              <li>Style that stays yours</li>
+              <li>Learns what lands</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container">
+        <h2 class="section-title fade-up">FAQ</h2>
+        <p class="section-lede fade-up" style="--delay: .05s">
+          Quick answers about how Fluppy fits into your Telegram workflow.
+        </p>
+        <div class="faq fade-up" style="--delay: .08s">
+          <div class="faq__item">
+            <button class="faq__q" type="button" aria-expanded="false" id="faq-q1" aria-controls="faq-a1">
+              <span>What is Fluppy?</span>
+              <span class="faq__chev" aria-hidden="true"></span>
+            </button>
+            <div class="faq__a" id="faq-a1" role="region" aria-labelledby="faq-q1" hidden>
+              <p>
+                Fluppy is an AI assistant for Telegram channels from tma-ai. It runs as a Mini App
+                and bot: it helps collect content, adapt drafts to your channel’s style, send posts
+                for your approval, and learn from audience reactions.
+              </p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__q" type="button" aria-expanded="false" id="faq-q2" aria-controls="faq-a2">
+              <span>Does Fluppy publish without me?</span>
+              <span class="faq__chev" aria-hidden="true"></span>
+            </button>
+            <div class="faq__a" id="faq-a2" role="region" aria-labelledby="faq-q2" hidden>
+              <p>
+                No. Every draft is sent for your approval. You can edit, schedule, or reject —
+                Fluppy never publishes to your channel without you.
+              </p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__q" type="button" aria-expanded="false" id="faq-q3" aria-controls="faq-a3">
+              <span>Where does Fluppy run?</span>
+              <span class="faq__chev" aria-hidden="true"></span>
+            </button>
+            <div class="faq__a" id="faq-a3" role="region" aria-labelledby="faq-q3" hidden>
+              <p>
+                Inside Telegram — as a Mini App plus bot. You draft, review, and approve without
+                leaving the app your audience already uses.
+              </p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__q" type="button" aria-expanded="false" id="faq-q4" aria-controls="faq-a4">
+              <span>Is there a token or crypto?</span>
+              <span class="faq__chev" aria-hidden="true"></span>
+            </button>
+            <div class="faq__a" id="faq-a4" role="region" aria-labelledby="faq-q4" hidden>
+              <p>
+                No. Fluppy is a practical AI assistant for creators — no tokenomics and no invented
+                tokens. Just channel workflows that respect your control and privacy.
+              </p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__q" type="button" aria-expanded="false" id="faq-q5" aria-controls="faq-a5">
+              <span>How does Fluppy learn my voice?</span>
+              <span class="faq__chev" aria-hidden="true"></span>
+            </button>
+            <div class="faq__a" id="faq-a5" role="region" aria-labelledby="faq-q5" hidden>
+              <p>
+                Fluppy adapts drafts to your channel’s style — tone, length, and pacing — and
+                improves over time from reactions and past posts that performed well with your audience.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING CTA -->
+    <section class="section cta-band" id="cta">
+      <div class="container">
+        <div class="cta-band__card fade-up">
+          <div class="cta-band__visual float-soft">
+            <div class="lottie lottie--cta" data-src="lottie/duck.json" data-hover-play aria-hidden="true"></div>
+          </div>
+          <div class="cta-band__copy">
+            <h2 class="cta-band__title">Ready to run your channel with Fluppy?</h2>
+            <p class="cta-band__text">
+              Open the Mini App, connect a channel, and keep every publish under your approval —
+              privacy-first AI for Telegram creators.
+            </p>
+            <div class="cta-band__actions">
+              <a class="btn btn--primary" href="#open">Open Fluppy</a>
+              <a class="btn btn--ghost" href="#connect">Connect channel</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- SOCIALS -->
     <section class="section" id="socials">
       <div class="container">
-        <h2 class="section-title">Socials</h2>
+        <h2 class="section-title fade-up">Socials</h2>
         <div class="socials">
-          <a class="social-pill" href="#open" id="open">
+          <a class="social-pill fade-up" href="#open" id="open" style="--delay: 0s">
             <div class="lottie lottie--pill" data-src="lottie/duck.json" aria-hidden="true"></div>
             <span>Open Fluppy</span>
           </a>
-          <a class="social-pill" href="#connect" id="connect">
+          <a class="social-pill fade-up" href="#connect" id="connect" style="--delay: .05s">
             <div class="lottie lottie--pill" data-src="lottie/onb_hiw_connect.json" aria-hidden="true"></div>
             <span>Connect channel</span>
           </a>
-          <a class="social-pill" href="https://t.me/" target="_blank" rel="noopener noreferrer">
+          <a class="social-pill fade-up" href="https://t.me/" target="_blank" rel="noopener noreferrer" style="--delay: .1s">
             <img class="social-pill__icon" src="images/icon-telegram.svg" alt="" width="40" height="40" />
             <span>Telegram</span>
           </a>
-          <a class="social-pill" href="https://x.com/" target="_blank" rel="noopener noreferrer">
+          <a class="social-pill fade-up" href="https://x.com/" target="_blank" rel="noopener noreferrer" style="--delay: .15s">
             <img class="social-pill__icon" src="images/icon-x.svg" alt="" width="40" height="40" />
             <span>X</span>
           </a>

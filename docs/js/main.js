@@ -9,18 +9,23 @@
   const burger = document.getElementById("nav-burger");
   const drawer = document.getElementById("nav-drawer");
   if (burger && nav) {
-    burger.addEventListener("click", () => {
-      const open = nav.classList.toggle("is-open");
+    const setOpen = (open) => {
+      nav.classList.toggle("is-open", open);
+      document.body.classList.toggle("nav-lock", open);
       burger.setAttribute("aria-expanded", open ? "true" : "false");
+      burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    };
+    burger.addEventListener("click", () => {
+      setOpen(!nav.classList.contains("is-open"));
     });
     if (drawer) {
       drawer.querySelectorAll("a").forEach((a) => {
-        a.addEventListener("click", () => {
-          nav.classList.remove("is-open");
-          burger.setAttribute("aria-expanded", "false");
-        });
+        a.addEventListener("click", () => setOpen(false));
       });
     }
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") setOpen(false);
+    });
   }
 
   // Nav scrolled state
@@ -74,7 +79,7 @@
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -48px 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -8% 0px" }
     );
     fadeEls.forEach((el) => io.observe(el));
   } else {

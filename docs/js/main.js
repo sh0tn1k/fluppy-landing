@@ -2,6 +2,34 @@
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
+  // Theme toggle (light / dark), persisted
+  (function initThemeToggle() {
+    const root = document.documentElement;
+    const btn = document.getElementById("theme-toggle");
+    function current() {
+      return root.getAttribute("data-theme") === "dark" ? "dark" : "light";
+    }
+    function apply(theme) {
+      if (theme === "dark") root.setAttribute("data-theme", "dark");
+      else root.removeAttribute("data-theme");
+      try { localStorage.setItem("fluppy-theme", theme); } catch (e) {}
+      if (btn) {
+        btn.setAttribute(
+          "aria-label",
+          theme === "dark" ? "Switch to light theme" : "Switch to dark theme"
+        );
+      }
+    }
+    if (btn) {
+      btn.addEventListener("click", () => {
+        apply(current() === "dark" ? "light" : "dark");
+      });
+      // sync aria from bootstrapped theme
+      apply(current());
+    }
+  })();
+
+
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // Mobile nav

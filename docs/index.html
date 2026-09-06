@@ -10,9 +10,9 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://sh0tn1k.github.io/fluppy-landing/" />
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet" />
+  <script data-theme-boot>
+(function(){try{var t=localStorage.getItem('fluppy-theme');if(t==='dark'||(t!=='light'&&matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();
+</script>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -25,9 +25,15 @@
       <a href="#faq" class="nav__link" data-section="faq">FAQ</a>
       <a href="#socials" class="nav__link" data-section="socials">Socials</a>
     </nav>
-    <button class="nav__burger" id="nav-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav__actions">
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme" title="Theme">
+        <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">🌙</span>
+        <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">☀️</span>
+      </button>
+      <button class="nav__burger" id="nav-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </header>
   <!-- Drawer is outside .nav so backdrop-filter doesn't trap position:fixed -->
   <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
@@ -46,7 +52,7 @@
       <div class="container hero__grid">
         <div class="hero__copy fade-up">
           <div class="hero__brand">
-            <div class="lottie hero__logo" data-src="lottie/duck.json" data-hover-play role="img" aria-label="Fluppy duck mascot"></div>
+            <div class="lottie hero__logo" data-src="lottie/duck.json" role="img" aria-label="Fluppy duck mascot"></div>
             <h1 class="hero__wordmark">FLUPPY</h1>
           </div>
           <p class="hero__eyebrow fade-up" style="--delay: .05s">From tma-ai · Telegram Mini App + bot</p>

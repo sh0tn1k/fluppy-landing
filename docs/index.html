@@ -26,9 +26,12 @@
       <a href="#socials" class="nav__link" data-section="socials">Socials</a>
     </nav>
     <div class="nav__actions">
-      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme" title="Theme">
-        <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">🌙</span>
-        <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">☀️</span>
+      <button class="theme-switch" id="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Toggle dark theme" title="Theme">
+        <span class="theme-switch__track" aria-hidden="true">
+          <span class="theme-switch__icon theme-switch__icon--sun">☀</span>
+          <span class="theme-switch__icon theme-switch__icon--moon">☾</span>
+          <span class="theme-switch__knob"></span>
+        </span>
       </button>
       <button class="nav__burger" id="nav-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
         <span></span><span></span><span></span>
@@ -55,7 +58,6 @@
             <div class="lottie hero__logo" data-src="lottie/duck.json" role="img" aria-label="Fluppy duck mascot"></div>
             <h1 class="hero__wordmark">FLUPPY</h1>
           </div>
-          <p class="hero__eyebrow fade-up" style="--delay: .05s">From tma-ai · Telegram Mini App + bot</p>
           <p class="hero__pitch fade-up" style="--delay: .08s">
             AI assistant for running Telegram channels — Mini App + bot in one place.
           </p>

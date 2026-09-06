@@ -14,9 +14,11 @@
       else root.removeAttribute("data-theme");
       try { localStorage.setItem("fluppy-theme", theme); } catch (e) {}
       if (btn) {
+        const dark = theme === "dark";
+        btn.setAttribute("aria-checked", dark ? "true" : "false");
         btn.setAttribute(
           "aria-label",
-          theme === "dark" ? "Switch to light theme" : "Switch to dark theme"
+          dark ? "Switch to light theme" : "Switch to dark theme"
         );
       }
     }

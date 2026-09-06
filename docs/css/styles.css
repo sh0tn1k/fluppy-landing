@@ -54,7 +54,13 @@
   --nav-h: 68px;
   --font: "SF Pro Display", -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-rounded: telegram_level, "SF Pro Display", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-smooth: cubic-bezier(0.45, 0, 0.15, 1);
+  --ease-decel: cubic-bezier(0.05, 0.7, 0.1, 1);
+  --motion-fast: 0.28s;
+  --motion-med: 0.45s;
+  --motion-slow: 0.85s;
   --shadow-soft: 0 12px 40px rgba(0, 122, 255, 0.08);
 }
 
@@ -381,7 +387,7 @@ body.nav-lock {
   gap: 8px;
   border: none;
   cursor: pointer;
-  transition: transform 0.2s var(--ease-out), opacity 0.15s ease, background 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+  transition: transform var(--motion-med) var(--ease-decel), opacity var(--motion-fast) var(--ease-out-soft), background var(--motion-fast) var(--ease-out-soft), box-shadow var(--motion-med) var(--ease-out-soft), color var(--motion-fast) var(--ease-out-soft);
   flex: 1 1 0;
   text-align: center;
   white-space: nowrap;
@@ -445,7 +451,7 @@ body.nav-lock {
   padding: 20px 12px;
   border-radius: 24px;
   background: transparent;
-  transition: background 0.25s ease, transform 0.25s var(--ease-out);
+  transition: background var(--motion-med) var(--ease-out-soft), transform var(--motion-med) var(--ease-decel);
 }
 
 .stats__item:hover {
@@ -515,7 +521,7 @@ body.nav-lock {
   align-items: center;
   gap: 12px;
   width: 100px;
-  transition: transform 0.25s var(--ease-out);
+  transition: transform var(--motion-med) var(--ease-decel);
 }
 
 .strip__item:hover {
@@ -632,7 +638,7 @@ body.nav-lock {
   padding: 40px;
   border: none;
   box-shadow: none;
-  transition: transform 0.3s var(--ease-out), box-shadow 0.3s ease;
+  transition: transform var(--motion-med) var(--ease-decel), box-shadow var(--motion-med) var(--ease-out-soft);
 }
 
 .about-card:hover {
@@ -680,7 +686,7 @@ body.nav-lock {
   padding: 28px 26px;
   border: none;
   box-shadow: none;
-  transition: transform 0.3s var(--ease-out), box-shadow 0.3s ease;
+  transition: transform var(--motion-med) var(--ease-decel), box-shadow var(--motion-med) var(--ease-out-soft);
 }
 
 .included-card:hover {
@@ -740,7 +746,7 @@ body.nav-lock {
   overflow: hidden;
   border: none;
   box-shadow: none;
-  transition: transform 0.3s var(--ease-out), box-shadow 0.3s ease;
+  transition: transform var(--motion-med) var(--ease-decel), box-shadow var(--motion-med) var(--ease-out-soft);
 }
 
 .how-card:hover {
@@ -851,7 +857,7 @@ body.nav-lock {
   background: var(--bg-soft);
   border-radius: 24px;
   padding: 24px 28px;
-  transition: transform 0.25s var(--ease-out), background 0.25s ease;
+  transition: transform var(--motion-med) var(--ease-decel), background 0.25s ease;
 }
 
 .timeline__step:hover .timeline__body {
@@ -888,7 +894,7 @@ body.nav-lock {
   flex-direction: column;
   border: none;
   box-shadow: none;
-  transition: transform 0.3s var(--ease-out), box-shadow 0.3s ease;
+  transition: transform var(--motion-med) var(--ease-decel), box-shadow var(--motion-med) var(--ease-out-soft);
 }
 
 .feature-card:hover {
@@ -939,7 +945,7 @@ body.nav-lock {
   padding: 36px 32px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s var(--ease-out), box-shadow 0.3s ease;
+  transition: transform var(--motion-med) var(--ease-decel), box-shadow var(--motion-med) var(--ease-out-soft);
   min-height: 100%;
 }
 
@@ -1058,7 +1064,7 @@ body.nav-lock {
   position: absolute;
   background: var(--muted);
   border-radius: 1px;
-  transition: transform 0.25s var(--ease-out), background 0.2s ease;
+  transition: transform var(--motion-med) var(--ease-decel), background 0.2s ease;
 }
 
 .faq__chev::before {
@@ -1187,7 +1193,7 @@ body.nav-lock {
   border-radius: var(--radius-social);
   padding: 20px;
   min-width: 220px;
-  transition: background 0.2s ease, transform 0.25s var(--ease-out), box-shadow 0.25s ease;
+  transition: background var(--motion-fast) var(--ease-out-soft), transform var(--motion-med) var(--ease-decel), box-shadow var(--motion-med) var(--ease-out-soft);
 }
 
 .social-pill:hover {
@@ -1244,17 +1250,23 @@ body.nav-lock {
   color: var(--muted);
 }
 
-/* Animations */
+/* Animations — smooth decelerate (ease-out) */
 .fade-up {
   opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.65s var(--ease-out), transform 0.65s var(--ease-out);
+  transform: translate3d(0, 28px, 0) scale(0.985);
+  filter: blur(2px);
+  transition:
+    opacity var(--motion-slow) var(--ease-decel),
+    transform var(--motion-slow) var(--ease-decel),
+    filter calc(var(--motion-slow) * 0.9) var(--ease-decel);
   transition-delay: var(--delay, 0s);
+  will-change: opacity, transform, filter;
 }
 
 .fade-up.is-visible {
   opacity: 1;
-  transform: none;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1280,26 +1292,31 @@ body.nav-lock {
 }
 
 @keyframes float-soft {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  0% { transform: translate3d(0, 0, 0); }
+  35% { transform: translate3d(0, -7px, 0); }
+  70% { transform: translate3d(0, -2px, 0); }
+  100% { transform: translate3d(0, 0, 0); }
 }
 
 @keyframes float-gentle {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-10px) rotate(0.4deg); }
+  0% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  30% { transform: translate3d(0, -9px, 0) rotate(0.35deg); }
+  65% { transform: translate3d(0, -3px, 0) rotate(-0.15deg); }
+  100% { transform: translate3d(0, 0, 0) rotate(0deg); }
 }
 
 @keyframes glow-pulse {
-  0%, 100% { opacity: 0.85; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.06); }
+  0% { opacity: 0.82; transform: scale(1); }
+  40% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 0.82; transform: scale(1); }
 }
 
 .float-soft {
-  animation: float-soft 4.5s ease-in-out infinite;
+  animation: float-soft 5.5s var(--ease-in-out-smooth) infinite;
 }
 
 .float-gentle {
-  animation: float-gentle 6s ease-in-out infinite;
+  animation: float-gentle 7.5s var(--ease-in-out-smooth) infinite;
 }
 
 /* Lottie containers */
@@ -1698,7 +1715,7 @@ body.nav-lock {
 
   /* Avoid invisible content stuck off-screen on short mobile viewports */
   .fade-up {
-    transform: translateY(14px);
+    transform: translate3d(0, 18px, 0) scale(0.99);
   }
 }
 

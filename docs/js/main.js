@@ -61,7 +61,7 @@
     const kids = group.querySelectorAll(":scope > .fade-up");
     kids.forEach((el, i) => {
       if (!el.style.getPropertyValue("--delay")) {
-        el.style.setProperty("--delay", `${i * 0.06}s`);
+        el.style.setProperty("--delay", `${i * 0.08}s`);
       }
     });
   });
@@ -87,26 +87,38 @@
     fadeEls.forEach((el) => el.classList.add("is-visible"));
   }
 
-  // Soft parallax on hero visual
+  // Soft parallax on hero visual — lerped for smooth deceleration
   const parallaxEls = document.querySelectorAll("[data-parallax]");
   if (!reduceMotion && parallaxEls.length) {
-    let ticking = false;
-    function onScrollParallax() {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        const y = window.scrollY;
-        parallaxEls.forEach((el) => {
-          const rect = el.getBoundingClientRect();
-          const mid = rect.top + rect.height / 2 - window.innerHeight / 2;
-          const offset = Math.max(-18, Math.min(18, mid * -0.04));
-          el.style.transform = `translate3d(0, ${offset}px, 0)`;
-        });
-        ticking = false;
+    const state = new Map();
+    parallaxEls.forEach((el) => state.set(el, { current: 0, target: 0 }));
+    let raf = 0;
+    function measureTargets() {
+      parallaxEls.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const mid = rect.top + rect.height / 2 - window.innerHeight / 2;
+        const target = Math.max(-16, Math.min(16, mid * -0.035));
+        const s = state.get(el);
+        if (s) s.target = target;
       });
+      if (!raf) raf = requestAnimationFrame(tick);
     }
-    window.addEventListener("scroll", onScrollParallax, { passive: true });
-    onScrollParallax();
+    function tick() {
+      let moving = false;
+      parallaxEls.forEach((el) => {
+        const s = state.get(el);
+        if (!s) return;
+        // ease toward target (decelerate as we approach)
+        const next = s.current + (s.target - s.current) * 0.08;
+        if (Math.abs(next - s.current) > 0.05) moving = true;
+        s.current = Math.abs(s.target - next) < 0.05 ? s.target : next;
+        el.style.transform = `translate3d(0, ${s.current.toFixed(2)}px, 0)`;
+      });
+      raf = moving ? requestAnimationFrame(tick) : 0;
+    }
+    window.addEventListener("scroll", measureTargets, { passive: true });
+    window.addEventListener("resize", measureTargets, { passive: true });
+    measureTargets();
   }
 
   // Animated counters (major.bot-style count-up with commas)
@@ -246,6 +258,12 @@
           autoplay: shouldAutoplay,
           path: src,
         });
+        // Slightly slower playback feels smoother; hero a bit livelier
+        try {
+          const isHero =
+            el.classList.contains("lottie--hero") || el.classList.contains("hero__logo");
+          anim.setSpeed(isHero ? 0.88 : 0.78);
+        } catch (_) {}
         lottieAnims.set(el, anim);
 
         const onFail = (ev) => {

@@ -535,7 +535,19 @@ h1, h2, h3, p {
   font-weight: 500;
 }
 
+
+.social-pill__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  display: block;
+}
+
 .social-pill__x {
+  display: none; /* replaced by SVG */
+}
+.social-pill__x-old {
   width: 40px;
   height: 40px;
   display: inline-flex;
@@ -777,4 +789,13 @@ h1, h2, h3, p {
   .stats {
     grid-template-columns: 1fr 1fr;
   }
+}
+
+
+.social-pill__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  display: block;
 }

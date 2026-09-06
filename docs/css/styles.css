@@ -208,11 +208,17 @@ h1, h2, h3, p {
   border-radius: var(--radius-card);
   overflow: hidden;
   background: #168cfa;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
 }
 
-.hero__visual-frame img {
+.hero__visual-frame img,
+.hero__visual-frame .lottie {
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 /* Buttons */
@@ -325,10 +331,13 @@ h1, h2, h3, p {
   width: 100px;
 }
 
-.strip__item img {
+.strip__item img,
+.strip__item .lottie {
   width: 80px;
   height: 80px;
   border-radius: 22px;
+  overflow: hidden;
+  background: var(--bg-soft);
 }
 
 .strip__item span {
@@ -423,7 +432,8 @@ h1, h2, h3, p {
   margin-left: auto;
   margin-right: -12px;
   margin-bottom: -16px;
-  width: min(280px, 100%);
+  width: min(220px, 70%);
+  aspect-ratio: 1 / 1;
   pointer-events: none;
 }
 
@@ -448,9 +458,13 @@ h1, h2, h3, p {
   padding: 20px 20px 0;
 }
 
-.feature-card__media img {
+.feature-card__media img,
+.feature-card__media .lottie {
   width: 100%;
+  aspect-ratio: 1 / 1;
   border-radius: 28px;
+  background: #fff;
+  overflow: hidden;
 }
 
 .feature-card__media--blue,
@@ -506,10 +520,13 @@ h1, h2, h3, p {
   background: #efefef;
 }
 
-.social-pill img {
+.social-pill img,
+.social-pill .lottie {
   width: 40px;
   height: 40px;
   border-radius: 12px;
+  flex-shrink: 0;
+  overflow: hidden;
 }
 
 .social-pill span {
@@ -568,6 +585,42 @@ h1, h2, h3, p {
   transform: none;
 }
 
+
+/* Lottie containers */
+.lottie {
+  display: block;
+  overflow: hidden;
+}
+
+.lottie svg {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.hero__logo.lottie {
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.lottie--hero {
+  width: 100%;
+  height: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.lottie--strip {
+  background: var(--bg-soft);
+}
+
+.lottie--feature {
+  max-height: 360px;
+}
+
 /* —— Mobile —— */
 @media (max-width: 960px) {
   :root {
@@ -621,7 +674,8 @@ h1, h2, h3, p {
     line-height: 64px;
   }
 
-  .hero__logo {
+  .hero__logo,
+  .hero__logo.lottie {
     width: 64px;
     height: 64px;
   }
@@ -703,7 +757,8 @@ h1, h2, h3, p {
     width: 88px;
   }
 
-  .strip__item img {
+  .strip__item img,
+  .strip__item .lottie {
     width: 64px;
     height: 64px;
   }

@@ -11,8 +11,13 @@ docs/                 ← served by GitHub Pages (source: /docs on main)
   index.html
   css/styles.css
   js/main.js
-  images/             ← SVG placeholders (replace with final art)
+  lottie/             ← product Lottie JSON from sh0tn1k/tma-ai (public/lottie)
+  images/             ← favicon + simple Telegram brand icon
 ```
+
+## Animations
+
+Hero, How it works, Features, Built-for strip, and Socials use **Lottie** animations from the Fluppy product repo (`sh0tn1k/tma-ai` → `public/lottie/`). They are loaded via [lottie-web](https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js) and initialized lazily when scrolled into view. Without JS, layout still works (empty rounded slots).
 
 ## Local preview
 
@@ -41,10 +46,6 @@ gh api -X POST repos/sh0tn1k/fluppy-landing/pages \
   -f source[branch]=main \
   -f source[path]=/docs
 ```
-
-## Placeholders
-
-Replace files under `docs/images/` (e.g. `hero-placeholder.svg`, `feature-*.svg`) with final screenshots or illustrations. Paths are relative for project Pages.
 
 ## Design notes
 

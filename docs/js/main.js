@@ -92,4 +92,65 @@
   } else {
     counters.forEach(animateCount);
   }
+
+  // Lottie animations (lazy when in view)
+  function initLottie(el) {
+    if (!window.lottie || el.dataset.lottieReady) return;
+    const src = el.getAttribute("data-src");
+    if (!src) return;
+    el.dataset.lottieReady = "1";
+    try {
+      window.lottie.loadAnimation({
+        container: el,
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        path: src,
+      });
+    } catch (err) {
+      el.dataset.lottieReady = "";
+      console.warn("Lottie failed:", src, err);
+    }
+  }
+
+  function setupLotties() {
+    const nodes = Array.from(document.querySelectorAll(".lottie[data-src]"));
+    if (!nodes.length) return;
+
+    if (!window.lottie) {
+      // CDN may still be loading; retry briefly
+      let tries = 0;
+      const wait = setInterval(() => {
+        tries += 1;
+        if (window.lottie || tries > 40) {
+          clearInterval(wait);
+          if (window.lottie) setupLotties();
+        }
+      }, 50);
+      return;
+    }
+
+    if ("IntersectionObserver" in window) {
+      const lio = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              initLottie(e.target);
+              lio.unobserve(e.target);
+            }
+          });
+        },
+        { rootMargin: "120px 0px", threshold: 0.01 }
+      );
+      nodes.forEach((el) => lio.observe(el));
+    } else {
+      nodes.forEach(initLottie);
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setupLotties);
+  } else {
+    setupLotties();
+  }
 })();

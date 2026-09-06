@@ -664,38 +664,56 @@ button {
   list-style: none;
 }
 
-.timeline::before {
-  content: "";
-  position: absolute;
-  left: calc(var(--rail) / 2 - 1px);
-  top: 28px;
-  bottom: 28px;
-  width: 2px;
-  background: linear-gradient(180deg, var(--blue-tint), rgba(0, 122, 255, 0.35), var(--blue-tint));
-  border-radius: 2px;
-  pointer-events: none;
-}
-
 .timeline__step {
   display: grid;
   grid-template-columns: var(--rail) minmax(0, 1fr);
   column-gap: 20px;
-  padding: 16px 0;
-  align-items: start;
+  padding: 12px 0;
+  align-items: stretch;
+}
+
+.timeline__rail {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--rail);
+  min-height: 100%;
+}
+
+/* Continuous line through the rail, clipped to marker centers on ends */
+.timeline__rail::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, var(--blue-tint), rgba(0, 122, 255, 0.35), var(--blue-tint));
+  border-radius: 2px;
+  z-index: 0;
+}
+
+.timeline__step:first-child .timeline__rail::before {
+  top: 50%;
+}
+
+.timeline__step:last-child .timeline__rail::before {
+  bottom: 50%;
 }
 
 .timeline__marker {
   box-sizing: border-box;
   width: 24px;
   height: 24px;
-  margin: 6px auto 0;
   border-radius: 50%;
   background: #fff;
   border: 3px solid var(--blue);
   box-shadow: 0 0 0 6px var(--blue-tint);
   position: relative;
   z-index: 1;
-  justify-self: center;
+  flex-shrink: 0;
 }
 
 .timeline__body {

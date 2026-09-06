@@ -257,13 +257,15 @@
           el.innerHTML = "";
           clearLottieReady(el);
           finish();
-          if (retry < 2) {
-            setTimeout(() => initLottie(el, retry + 1), 400 * (retry + 1));
+          if (retry < 1) {
+            setTimeout(() => initLottie(el, retry + 1), 500);
           }
         };
+        // Only data_failed is fatal. Generic "error" includes BMConfigErrorEvent
+        // (non-fatal config warnings) and was destroying working animations.
         anim.addEventListener("data_failed", onFail);
-        anim.addEventListener("error", onFail);
         anim.addEventListener("data_ready", finish);
+        anim.addEventListener("DOMLoaded", finish);
         setTimeout(finish, 15000);
 
         anim.addEventListener("DOMLoaded", () => {
@@ -297,8 +299,8 @@
         clearLottieReady(el);
         console.warn("Lottie failed:", src, err);
         finish();
-        if (retry < 2) {
-          setTimeout(() => initLottie(el, retry + 1), 400 * (retry + 1));
+        if (retry < 1) {
+          setTimeout(() => initLottie(el, retry + 1), 500);
         }
       }
     });

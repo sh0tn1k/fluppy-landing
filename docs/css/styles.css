@@ -22,111 +22,25 @@
   --shadow-soft: 0 12px 40px rgba(0, 122, 255, 0.08);
 }
 
-[data-theme="dark"] {
-  color-scheme: dark;
-  --bg: #000000;
-  --bg-soft: #1c1c1e;
-  --text: #ffffff;
-  --muted: #98989f;
-  --blue: #0a84ff;
-  --blue-tint: rgba(10, 132, 255, 0.18);
-  --blue-token: #409cff;
-  --orange: #ff9f0a;
-  --yellow: #ffd60a;
-  --shadow-soft: 0 12px 40px rgba(0, 0, 0, 0.45);
-}
 
-[data-theme="dark"] body {
-  background: var(--bg);
-  color: var(--text);
-}
 
-[data-theme="dark"] .nav {
-  background: rgba(0, 0, 0, 0.55);
-}
 
-[data-theme="dark"] .nav.is-scrolled {
-  background: rgba(0, 0, 0, 0.78);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
-}
 
-[data-theme="dark"] .nav.is-open {
-  background: #000;
-}
 
-[data-theme="dark"] .nav__burger span {
-  background: var(--bg);
-}
 
-[data-theme="dark"] .nav.is-open ~ .nav__drawer {
-  background: #000;
-}
 
-[data-theme="dark"] .btn--ghost {
-  background: transparent;
-  color: var(--blue);
-  border-color: rgba(10, 132, 255, 0.35);
-}
 
-[data-theme="dark"] .hero__visual-frame {
-  box-shadow: 0 16px 48px rgba(10, 132, 255, 0.2);
-}
 
-[data-theme="dark"] .timeline__marker {
-  background: #000;
-}
 
-[data-theme="dark"] .faq__item {
-  background: var(--bg-soft);
-}
 
-[data-theme="dark"] .social-pill {
-  background: var(--bg-soft);
-}
 
-[data-theme="dark"] .nav {
-  background: rgba(0, 0, 0, 0.72);
-}
 
-[data-theme="dark"] .nav.is-scrolled,
-[data-theme="dark"] .nav.is-open {
-  background: rgba(0, 0, 0, 0.92);
-}
 
-[data-theme="dark"] .nav.is-open ~ .nav__drawer {
-  background: #000;
-}
 
-[data-theme="dark"] .btn--ghost {
-  background: transparent;
-}
 
-[data-theme="dark"] .hero__visual-frame {
-  background: linear-gradient(145deg, #0a84ff 0%, #0051d4 55%, #409cff 100%);
-}
 
-[data-theme="dark"] .how-card,
-[data-theme="dark"] .about-card,
-[data-theme="dark"] .feature-card,
-[data-theme="dark"] .usecase-card,
-[data-theme="dark"] .timeline__body,
-[data-theme="dark"] .trust__band,
-[data-theme="dark"] .cta-band__card,
-[data-theme="dark"] .faq__item,
-[data-theme="dark"] .social-pill,
-[data-theme="dark"] .stats__item {
-  background: var(--bg-soft);
-}
 
-[data-theme="dark"] .feature-card__media {
-  background: #111113;
-}
 
-[data-theme="dark"] .strip__item .lottie,
-[data-theme="dark"] .how-card,
-[data-theme="dark"] .card {
-  background: var(--bg-soft);
-}
 
 
 
@@ -245,92 +159,7 @@ button {
 }
 
 
-/* theme toggle desktop */
-.nav__actions {
 
-  position: absolute;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  z-index: 120;
-}
-
-.theme-switch {
-  border: 0;
-  padding: 0;
-  background: transparent;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.theme-switch__track {
-  position: relative;
-  width: 64px;
-  height: 34px;
-  border-radius: 999px;
-  background: var(--bg-soft);
-  border: 1.5px solid rgba(0, 0, 0, 0.08);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 9px;
-  box-sizing: border-box;
-  transition: background 0.25s ease, border-color 0.25s ease;
-}
-
-.theme-switch__icon {
-  font-size: 13px;
-  line-height: 1;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.55;
-  transition: opacity 0.2s ease;
-  color: var(--text);
-}
-
-.theme-switch__icon--sun { opacity: 0.95; }
-.theme-switch__icon--moon { opacity: 0.35; }
-
-.theme-switch__knob {
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
-  transition: transform 0.25s var(--ease-out), background 0.25s ease;
-  z-index: 2;
-}
-
-[data-theme="dark"] .theme-switch__track {
-  background: #2c2c2e;
-  border-color: rgba(255, 255, 255, 0.12);
-}
-
-[data-theme="dark"] .theme-switch__knob {
-  transform: translateX(30px);
-  background: #0a84ff;
-}
-
-[data-theme="dark"] .theme-switch__icon--sun { opacity: 0.35; }
-[data-theme="dark"] .theme-switch__icon--moon { opacity: 0.95; color: #ffd60a; }
-
-.theme-switch:hover .theme-switch__track {
-  border-color: rgba(0, 122, 255, 0.35);
-}
-
-.theme-switch:focus-visible {
-  outline: 2px solid var(--blue);
-  outline-offset: 3px;
-  border-radius: 999px;
-}
 
 
 .nav__burger {
@@ -1450,12 +1279,9 @@ html.nav-lock {
     display: none;
   }
 
-  .nav__actions {
-    right: max(8px, env(safe-area-inset-right));
-  }
-
   .nav__burger {
     display: block;
+    right: max(12px, env(safe-area-inset-right));
     z-index: 120;
   }
 

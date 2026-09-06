@@ -214,9 +214,6 @@ body.nav-lock {
   overflow: hidden;
   height: 100%;
 }
-html.nav-lock {
-  overflow: hidden;
-}
 
 /* —— Hero —— */
 .hero {
@@ -1351,11 +1348,6 @@ html.nav-lock {
     height: 56px;
   }
 
-  .hero__eyebrow {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 100%;
-  }
 
   .hero__pitch {
     font-size: 18px;

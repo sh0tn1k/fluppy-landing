@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Fluppy — AI assistant for Telegram channels</title>
+  <meta name="description" content="Fluppy is a privacy-first AI assistant that helps you run Telegram channels: collect content, match your voice, send posts for approval, and learn from audience reactions." />
+  <meta property="og:title" content="Fluppy — AI for Telegram channels" />
+  <meta property="og:description" content="Collect, adapt, approve, learn. Privacy-first AI for Telegram channel creators." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sh0tn1k.github.io/fluppy-landing/" />
+  <link rel="icon" type="image/svg+xml" href="images/duck-mascot.svg" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="nav" id="nav">
+    <nav class="nav__inner" aria-label="Primary">
+      <a href="#about" class="nav__link" data-section="about">About</a>
+      <a href="#how" class="nav__link" data-section="how">How it works</a>
+      <a href="#features" class="nav__link" data-section="features">Features</a>
+      <a href="#socials" class="nav__link" data-section="socials">Socials</a>
+    </nav>
+    <button class="nav__burger" id="nav-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+      <a href="#about" class="nav__link" data-section="about">About</a>
+      <a href="#how" class="nav__link" data-section="how">How it works</a>
+      <a href="#features" class="nav__link" data-section="features">Features</a>
+      <a href="#socials" class="nav__link" data-section="socials">Socials</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="container hero__grid">
+        <div class="hero__copy fade-up">
+          <div class="hero__brand">
+            <img class="hero__logo" src="images/duck-mascot.svg" alt="Fluppy duck mascot" width="72" height="72" />
+            <h1 class="hero__wordmark">FLUPPY</h1>
+          </div>
+          <p class="hero__pitch">
+            AI assistant for running Telegram channels — Mini App + bot in one place.
+          </p>
+          <p class="hero__lede">
+            Fluppy collects relevant content, adapts text to your channel’s style, sends posts
+            for approval, and learns from audience reactions and past posts.
+          </p>
+          <p class="hero__lede">
+            Privacy-first by design. You stay in control of every publish.
+          </p>
+          <div class="hero__ctas">
+            <a class="btn btn--primary" href="#open">Open Fluppy</a>
+            <a class="btn btn--tinted" href="#connect">Connect channel</a>
+          </div>
+        </div>
+        <div class="hero__visual fade-up" style="--delay: .1s">
+          <div class="hero__visual-frame">
+            <img src="images/hero-placeholder.svg" alt="Fluppy Mini App preview placeholder — replace images/hero-placeholder.svg" width="640" height="520" />
+          </div>
+        </div>
+      </div>
+
+      <div class="container stats fade-up" style="--delay: .2s">
+        <div class="stats__item">
+          <div class="stats__value" data-count="1200" data-suffix="+">0</div>
+          <div class="stats__label">Channels connected</div>
+        </div>
+        <div class="stats__item">
+          <div class="stats__value" data-count="48" data-suffix="k">0</div>
+          <div class="stats__label">Posts drafted</div>
+        </div>
+        <div class="stats__item">
+          <div class="stats__value" data-count="92" data-suffix="%">0</div>
+          <div class="stats__label">Approval rate</div>
+        </div>
+        <div class="stats__item">
+          <div class="stats__value" data-count="4" data-suffix=".8★">0</div>
+          <div class="stats__label">Creator rating</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUILT FOR TELEGRAM -->
+    <section class="strip" id="built">
+      <div class="container">
+        <h2 class="section-title">Built for Telegram</h2>
+        <div class="strip__row">
+          <div class="strip__item">
+            <img src="images/icon-telegram.svg" alt="" width="80" height="80" />
+            <span>Telegram</span>
+          </div>
+          <div class="strip__item">
+            <img src="images/icon-miniapp.svg" alt="" width="80" height="80" />
+            <span>Mini Apps</span>
+          </div>
+          <div class="strip__item">
+            <img src="images/icon-bots.svg" alt="" width="80" height="80" />
+            <span>Bots</span>
+          </div>
+          <div class="strip__item">
+            <img src="images/icon-channels.svg" alt="" width="80" height="80" />
+            <span>Channels</span>
+          </div>
+          <div class="strip__item">
+            <img src="images/icon-ai.svg" alt="" width="80" height="80" />
+            <span>AI drafts</span>
+          </div>
+          <div class="strip__item">
+            <img src="images/icon-privacy.svg" alt="" width="80" height="80" />
+            <span>Privacy-first</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="section-title">About Fluppy</h2>
+        <div class="about-grid">
+          <article class="card about-card fade-up">
+            <h3>What is Fluppy?</h3>
+            <p>
+              Fluppy is an AI co-pilot for Telegram channel owners. It lives inside Telegram
+              as a Mini App and bot — so you draft, review, and publish without leaving the app
+              your audience already uses.
+            </p>
+          </article>
+          <article class="card about-card fade-up" style="--delay: .05s">
+            <h3>Content that fits your channel</h3>
+            <p>
+              Fluppy watches topics you care about, then rewrites drafts in your channel’s style —
+              tone, length, emoji habits, and posting rhythm — before anything goes live.
+            </p>
+          </article>
+          <article class="card about-card fade-up" style="--delay: .1s">
+            <h3>You stay in control</h3>
+            <p>
+              Every post is sent for your approval. Edit, schedule, or reject with one tap.
+              Fluppy never publishes without you — your channel, your voice, your call.
+            </p>
+          </article>
+          <article class="card about-card fade-up" style="--delay: .15s">
+            <h3>Privacy-first AI</h3>
+            <p>
+              Built with privacy in mind: only the data needed to run your channel workflows,
+              clear controls, and no tokenomics games. Just a practical assistant for creators.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section" id="how">
+      <div class="container">
+        <h2 class="section-title">How it works</h2>
+        <div class="how-grid">
+          <article class="how-card fade-up">
+            <div class="how-card__num">01</div>
+            <h3 class="how-card__title">Collect</h3>
+            <p class="how-card__text">Pull relevant stories, links, and trends matched to your channel’s topics.</p>
+            <img class="how-card__art" src="images/step-1.svg" alt="Placeholder art for collect step" width="280" height="160" />
+          </article>
+          <article class="how-card fade-up" style="--delay: .05s">
+            <div class="how-card__num">02</div>
+            <h3 class="how-card__title">Adapt</h3>
+            <p class="how-card__text">Rewrite into your channel voice — style, length, and pacing.</p>
+            <img class="how-card__art" src="images/step-2.svg" alt="Placeholder art for adapt step" width="280" height="160" />
+          </article>
+          <article class="how-card fade-up" style="--delay: .1s">
+            <div class="how-card__num">03</div>
+            <h3 class="how-card__title">Approve</h3>
+            <p class="how-card__text">Review drafts in Telegram. Edit, schedule, or send when ready.</p>
+            <img class="how-card__art" src="images/step-3.svg" alt="Placeholder art for approve step" width="280" height="160" />
+          </article>
+          <article class="how-card fade-up" style="--delay: .15s">
+            <div class="how-card__num">04</div>
+            <h3 class="how-card__title">Learn</h3>
+            <p class="how-card__text">Improve from reactions and past posts so the next draft is sharper.</p>
+            <img class="how-card__art" src="images/step-4.svg" alt="Placeholder art for learn step" width="280" height="160" />
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section" id="features">
+      <div class="container">
+        <h2 class="section-title">Features</h2>
+        <div class="features-grid">
+          <article class="feature-card fade-up">
+            <div class="feature-card__media">
+              <img src="images/feature-collect.svg" alt="IMAGE PLACEHOLDER: public/images/feature-collect.svg" width="480" height="320" />
+            </div>
+            <div class="feature-card__body">
+              <h3>Smart content collection</h3>
+              <p>Surface relevant material for your niche so you always have something worth posting.</p>
+            </div>
+          </article>
+
+          <article class="feature-card fade-up" style="--delay: .05s">
+            <div class="feature-card__media">
+              <img src="images/feature-adapt.svg" alt="IMAGE PLACEHOLDER: public/images/feature-adapt.svg" width="480" height="320" />
+            </div>
+            <div class="feature-card__body">
+              <h3>Voice-matched drafts</h3>
+              <p>Adapt every text to your channel’s style — from punchy blurbs to long-form digests.</p>
+            </div>
+          </article>
+
+          <article class="feature-card fade-up" style="--delay: .1s">
+            <div class="feature-card__media">
+              <img src="images/feature-approve.svg" alt="IMAGE PLACEHOLDER: public/images/feature-approve.svg" width="480" height="360" />
+            </div>
+            <div class="feature-card__body">
+              <h3>Approval workflow</h3>
+              <p>Posts land in your chat for a quick yes, edit, or skip — nothing ships without you.</p>
+            </div>
+          </article>
+
+          <article class="feature-card fade-up" style="--delay: .15s">
+            <div class="feature-card__media">
+              <img src="images/feature-learn.svg" alt="IMAGE PLACEHOLDER: public/images/feature-learn.svg" width="480" height="320" />
+            </div>
+            <div class="feature-card__body">
+              <h3>Learns from your audience</h3>
+              <p>Reactions and past winners teach Fluppy what resonates — so drafts get better over time.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIALS -->
+    <section class="section" id="socials">
+      <div class="container">
+        <h2 class="section-title">Socials</h2>
+        <div class="socials">
+          <a class="social-pill" href="#open" id="open">
+            <img src="images/duck-mascot.svg" alt="" width="40" height="40" />
+            <span>Open Fluppy</span>
+          </a>
+          <a class="social-pill" href="#connect" id="connect">
+            <img src="images/icon-channels.svg" alt="" width="40" height="40" />
+            <span>Connect channel</span>
+          </a>
+          <a class="social-pill" href="https://t.me/" target="_blank" rel="noopener noreferrer">
+            <img src="images/icon-telegram.svg" alt="" width="40" height="40" />
+            <span>Telegram</span>
+          </a>
+          <a class="social-pill" href="https://x.com/" target="_blank" rel="noopener noreferrer">
+            <span class="social-pill__x" aria-hidden="true">𝕏</span>
+            <span>X</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="footer__email" href="mailto:hello@fluppy.bot">hello@fluppy.bot</a>
+    <p class="footer__note">© <span id="year"></span> Fluppy. AI assistant for Telegram channels.</p>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

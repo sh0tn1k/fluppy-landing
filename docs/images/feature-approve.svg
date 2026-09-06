@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" fill="none">
+  <defs>
+    <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#007AFF"/><stop offset="1" stop-color="#5856D6"/></linearGradient>
+  </defs>
+  <rect width="480" height="360" rx="32" fill="url(#g3)"/>
+  <text x="240" y="28" text-anchor="middle" fill="#ffffff99" font-family="system-ui,sans-serif" font-size="12" font-weight="600">PLACEHOLDER · feature-approve.svg</text>
+  <rect x="90" y="50" width="300" height="280" rx="36" fill="#1C1C1E"/>
+  <rect x="100" y="60" width="280" height="260" rx="28" fill="#F2F2F7"/>
+  <rect x="190" y="72" width="100" height="18" rx="9" fill="#1C1C1E"/>
+  <text x="240" y="120" text-anchor="middle" fill="#000" font-family="system-ui,sans-serif" font-size="16" font-weight="700">Post ready</text>
+  <rect x="130" y="140" width="220" height="90" rx="16" fill="#fff"/>
+  <rect x="148" y="158" width="140" height="10" rx="5" fill="#007AFF"/>
+  <rect x="148" y="178" width="180" height="8" rx="4" fill="#C7C7CC"/>
+  <rect x="148" y="196" width="150" height="8" rx="4" fill="#E5E5EA"/>
+  <rect x="130" y="250" width="100" height="44" rx="22" fill="#FF3B30"/>
+  <text x="180" y="278" text-anchor="middle" fill="#fff" font-family="system-ui,sans-serif" font-size="13" font-weight="600">Edit</text>
+  <rect x="250" y="250" width="100" height="44" rx="22" fill="#34C759"/>
+  <text x="300" y="278" text-anchor="middle" fill="#fff" font-family="system-ui,sans-serif" font-size="13" font-weight="600">Send</text>
+</svg>

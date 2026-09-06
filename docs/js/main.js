@@ -338,26 +338,25 @@
   }
 
   function scheduleIdlePreload(nodes) {
-    const pending = nodes.filter((el) => !el.dataset.lottieReady);
-    if (!pending.length) return;
-
-    const kick = () => {
-      const next = pending.find((el) => !el.dataset.lottieReady);
-      if (!next) return;
-      initLottie(next);
-      if (pending.some((el) => !el.dataset.lottieReady)) {
-        if (typeof requestIdleCallback === "function") {
-          requestIdleCallback(kick, { timeout: 1200 });
-        } else {
-          setTimeout(kick, 200);
-        }
+    // Stagger remaining Lotties so nav-jumps / no-scroll still get every animation.
+    // Prefer setTimeout over rIC-only chains (can stall under heavy SVG work / busy main thread).
+    let i = 0;
+    const tick = () => {
+      while (i < nodes.length) {
+        const el = nodes[i++];
+        if (el.dataset.lottieReady) continue;
+        initLottie(el);
+        setTimeout(tick, 120);
+        return;
       }
     };
-
+    setTimeout(tick, 400);
     if (typeof requestIdleCallback === "function") {
-      requestIdleCallback(kick, { timeout: 800 });
-    } else {
-      setTimeout(kick, 300);
+      requestIdleCallback(() => {
+        nodes.forEach((el) => {
+          if (!el.dataset.lottieReady) initLottie(el);
+        });
+      }, { timeout: 2500 });
     }
   }
 

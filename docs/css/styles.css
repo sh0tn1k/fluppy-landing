@@ -654,44 +654,48 @@ button {
 
 /* Timeline detail under how */
 .timeline {
+  --rail: 32px;
   margin-top: 48px;
   display: flex;
   flex-direction: column;
   gap: 0;
   position: relative;
-  padding-left: 8px;
+  padding-left: 0;
+  list-style: none;
 }
 
 .timeline::before {
   content: "";
   position: absolute;
-  left: 19px;
-  top: 12px;
-  bottom: 12px;
+  left: calc(var(--rail) / 2 - 1px);
+  top: 28px;
+  bottom: 28px;
   width: 2px;
   background: linear-gradient(180deg, var(--blue-tint), rgba(0, 122, 255, 0.35), var(--blue-tint));
   border-radius: 2px;
+  pointer-events: none;
 }
 
 .timeline__step {
   display: grid;
-  grid-template-columns: 40px 1fr;
-  gap: 20px;
-  padding: 20px 0;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  column-gap: 20px;
+  padding: 16px 0;
   align-items: start;
 }
 
 .timeline__marker {
+  box-sizing: border-box;
   width: 24px;
   height: 24px;
-  margin-left: 8px;
-  margin-top: 4px;
+  margin: 6px auto 0;
   border-radius: 50%;
   background: #fff;
   border: 3px solid var(--blue);
   box-shadow: 0 0 0 6px var(--blue-tint);
   position: relative;
   z-index: 1;
+  justify-self: center;
 }
 
 .timeline__body {
@@ -1344,12 +1348,8 @@ button {
     padding: 24px 28px 28px;
   }
 
-  .timeline::before {
-    left: 15px;
-  }
-
-  .timeline__marker {
-    margin-left: 4px;
+  .timeline {
+    --rail: 28px;
   }
 
   .timeline__body {

@@ -1,3 +1,48 @@
+
+/* Fonts from major.bot (SF Pro Display + SF Rounded) */
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("../fonts/SF-Pro-Display-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("../fonts/SF-Pro-Display-Semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("../fonts/SF-Pro-Display-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("../fonts/SF-Pro-Display-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SF Pro Rounded";
+  src: url("../fonts/SFRounded-Semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SF Pro Rounded";
+  src: url("../fonts/SFRounded-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Fluppy landing — layout language inspired by major.bot (no Major brand assets) */
 
 :root {
@@ -16,8 +61,8 @@
   --radius-btn: 12px;
   --radius-social: 20px;
   --nav-h: 68px;
-  --font: ui-rounded, "SF Pro Display", -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", Inter, Arial, sans-serif;
-  --font-rounded: ui-rounded, "SF Pro Rounded", "SF Pro Display", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font: "SF Pro Display", -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", sans-serif;
+  --font-rounded: "SF Pro Rounded", "SF Pro Display", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --shadow-soft: 0 12px 40px rgba(0, 122, 255, 0.08);
 }
@@ -272,7 +317,7 @@ body.nav-lock {
   font-family: var(--font);
   font-size: 80px;
   line-height: 92px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.03em;
   text-transform: uppercase;
 }

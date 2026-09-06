@@ -178,60 +178,186 @@
     });
   });
 
-  // Lottie animations (lazy when in view) + optional hover play
+  // Lottie animations — viewport + idle preload + nav/hash eager init
   const lottieAnims = new WeakMap();
+  const LOTTIE_CONCURRENCY = 3;
+  let lottieInFlight = 0;
+  const lottieQueue = [];
+  let lottieIo = null;
 
-  function initLottie(el) {
-    if (!window.lottie || el.dataset.lottieReady) return;
-    const src = el.getAttribute("data-src");
-    if (!src) return;
-    el.dataset.lottieReady = "1";
+  function resolveLottieSrc(src) {
     try {
-      const hoverPlay = el.hasAttribute("data-hover-play");
-      const anim = window.lottie.loadAnimation({
-        container: el,
-        renderer: "svg",
-        loop: true,
-        autoplay: !hoverPlay,
-        path: src,
-        rendererSettings: {
-          progressiveLoad: true,
-          hideOnTransparent: true,
-        },
-      });
-      lottieAnims.set(el, anim);
+      return new URL(src, document.baseURI).href;
+    } catch (_) {
+      return src;
+    }
+  }
 
-      if (hoverPlay) {
-        // Start once so first frame paints, then pause until hover
-        anim.addEventListener("DOMLoaded", () => {
-          anim.goToAndStop(0, true);
+  function pumpLottieQueue() {
+    while (lottieInFlight < LOTTIE_CONCURRENCY && lottieQueue.length) {
+      const job = lottieQueue.shift();
+      lottieInFlight += 1;
+      job(() => {
+        lottieInFlight -= 1;
+        pumpLottieQueue();
+      });
+    }
+  }
+
+  function enqueueLottie(run) {
+    lottieQueue.push(run);
+    pumpLottieQueue();
+  }
+
+  function clearLottieReady(el) {
+    delete el.dataset.lottieReady;
+  }
+
+  function initLottie(el, attempt) {
+    if (!window.lottie || el.dataset.lottieReady) return;
+    const rawSrc = el.getAttribute("data-src");
+    if (!rawSrc) return;
+    const src = resolveLottieSrc(rawSrc);
+    const retry = typeof attempt === "number" ? attempt : 0;
+    el.dataset.lottieReady = "1";
+
+    if (lottieIo) {
+      try {
+        lottieIo.unobserve(el);
+      } catch (_) {}
+    }
+
+    enqueueLottie((done) => {
+      let finished = false;
+      const finish = () => {
+        if (finished) return;
+        finished = true;
+        done();
+      };
+
+      try {
+        const hoverPlay = el.hasAttribute("data-hover-play");
+        // Always autoplay unless user prefers reduced motion
+        const shouldAutoplay = !reduceMotion;
+        const anim = window.lottie.loadAnimation({
+          container: el,
+          renderer: "svg",
+          loop: true,
+          autoplay: shouldAutoplay,
+          path: src,
         });
-        const play = () => {
-          const a = lottieAnims.get(el);
-          if (a) a.play();
+        lottieAnims.set(el, anim);
+
+        const onFail = (ev) => {
+          console.warn("Lottie failed:", src, ev);
+          try {
+            anim.destroy();
+          } catch (_) {}
+          lottieAnims.delete(el);
+          el.innerHTML = "";
+          clearLottieReady(el);
+          finish();
+          if (retry < 2) {
+            setTimeout(() => initLottie(el, retry + 1), 400 * (retry + 1));
+          }
         };
-        const pause = () => {
-          const a = lottieAnims.get(el);
-          if (a) a.pause();
-        };
-        const host = el.closest(".strip__item, .usecase-card, .trust__mascot, .cta-band__visual, .hero__brand") || el;
-        host.addEventListener("mouseenter", play);
-        host.addEventListener("mouseleave", pause);
-        host.addEventListener("focusin", play);
-        host.addEventListener("focusout", pause);
-        // Touch: brief play
-        host.addEventListener(
-          "touchstart",
-          () => {
-            play();
-            setTimeout(pause, 1800);
-          },
-          { passive: true }
-        );
+        anim.addEventListener("data_failed", onFail);
+        anim.addEventListener("error", onFail);
+        anim.addEventListener("data_ready", finish);
+        setTimeout(finish, 15000);
+
+        anim.addEventListener("DOMLoaded", () => {
+          try {
+            if (shouldAutoplay) {
+              anim.goToAndPlay(0, true);
+            } else {
+              anim.goToAndStop(0, true);
+            }
+          } catch (err) {
+            console.warn("Lottie first-frame seek failed:", src, err);
+          }
+          const svg = el.querySelector("svg");
+          if (svg) svg.style.visibility = "visible";
+        });
+
+        if (hoverPlay) {
+          const play = () => {
+            const a = lottieAnims.get(el);
+            if (a) a.goToAndPlay(0, true);
+          };
+          const host =
+            el.closest(
+              ".strip__item, .usecase-card, .trust__mascot, .cta-band__visual, .hero__brand"
+            ) || el;
+          host.addEventListener("mouseenter", play);
+          host.addEventListener("focusin", play);
+          host.addEventListener("touchstart", play, { passive: true });
+        }
+      } catch (err) {
+        clearLottieReady(el);
+        console.warn("Lottie failed:", src, err);
+        finish();
+        if (retry < 2) {
+          setTimeout(() => initLottie(el, retry + 1), 400 * (retry + 1));
+        }
       }
-    } catch (err) {
-      el.dataset.lottieReady = "";
-      console.warn("Lottie failed:", src, err);
+    });
+  }
+
+  function initLottiesIn(root) {
+    if (!root) return;
+    const scope = root.querySelectorAll
+      ? root.querySelectorAll(".lottie[data-src]")
+      : [];
+    const list =
+      root.matches && root.matches(".lottie[data-src]")
+        ? [root, ...scope]
+        : [...scope];
+    list.forEach((el) => initLottie(el));
+  }
+
+  function waitForLottie(cb, maxMs) {
+    if (window.lottie) {
+      cb();
+      return;
+    }
+    const started = Date.now();
+    const max = maxMs || 10000;
+    const tick = () => {
+      if (window.lottie) {
+        cb();
+        return;
+      }
+      if (Date.now() - started >= max) {
+        console.warn("Lottie library not available after wait");
+        return;
+      }
+      setTimeout(tick, 50);
+    };
+    setTimeout(tick, 50);
+  }
+
+  function scheduleIdlePreload(nodes) {
+    const pending = nodes.filter((el) => !el.dataset.lottieReady);
+    if (!pending.length) return;
+
+    const kick = () => {
+      const next = pending.find((el) => !el.dataset.lottieReady);
+      if (!next) return;
+      initLottie(next);
+      if (pending.some((el) => !el.dataset.lottieReady)) {
+        if (typeof requestIdleCallback === "function") {
+          requestIdleCallback(kick, { timeout: 1200 });
+        } else {
+          setTimeout(kick, 200);
+        }
+      }
+    };
+
+    if (typeof requestIdleCallback === "function") {
+      requestIdleCallback(kick, { timeout: 800 });
+    } else {
+      setTimeout(kick, 300);
     }
   }
 
@@ -239,46 +365,65 @@
     const nodes = Array.from(document.querySelectorAll(".lottie[data-src]"));
     if (!nodes.length) return;
 
-    if (!window.lottie) {
-      let tries = 0;
-      const wait = setInterval(() => {
-        tries += 1;
-        if (window.lottie || tries > 40) {
-          clearInterval(wait);
-          if (window.lottie) setupLotties();
+    waitForLottie(() => {
+      if (!window.lottie) return;
+
+      const eager = [];
+      const lazy = [];
+      nodes.forEach((el) => {
+        if (
+          el.classList.contains("lottie--hero") ||
+          el.classList.contains("hero__logo")
+        ) {
+          eager.push(el);
+        } else {
+          lazy.push(el);
         }
-      }, 50);
-      return;
-    }
+      });
+      eager.forEach((el) => initLottie(el));
 
-    // Eager-load hero / logo Lotties; lazy-load the rest
-    const eager = [];
-    const lazy = [];
-    nodes.forEach((el) => {
-      if (el.classList.contains("lottie--hero") || el.classList.contains("hero__logo")) {
-        eager.push(el);
+      if ("IntersectionObserver" in window) {
+        lottieIo = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                initLottie(e.target);
+                lottieIo.unobserve(e.target);
+              }
+            });
+          },
+          { rootMargin: "600px 0px", threshold: 0.01 }
+        );
+        lazy.forEach((el) => lottieIo.observe(el));
       } else {
-        lazy.push(el);
+        lazy.forEach((el) => initLottie(el));
       }
-    });
-    eager.forEach(initLottie);
 
-    if ("IntersectionObserver" in window) {
-      const lio = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e) => {
-            if (e.isIntersecting) {
-              initLottie(e.target);
-              lio.unobserve(e.target);
-            }
+      // Eventually load everything without requiring a full scroll
+      scheduleIdlePreload(lazy);
+
+      // Nav / hash jumps: init lotties in the target section immediately
+      function initFromHash() {
+        const hash = location.hash.replace(/^#/, "");
+        if (!hash) return;
+        const section = document.getElementById(hash);
+        if (section) initLottiesIn(section);
+      }
+
+      window.addEventListener("hashchange", initFromHash);
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", () => {
+          const id = (a.getAttribute("href") || "").replace(/^#/, "");
+          if (!id) return;
+          // Defer so the browser can update hash / scroll target
+          requestAnimationFrame(() => {
+            const section = document.getElementById(id);
+            if (section) initLottiesIn(section);
           });
-        },
-        { rootMargin: "180px 0px", threshold: 0.01 }
-      );
-      lazy.forEach((el) => lio.observe(el));
-    } else {
-      lazy.forEach(initLottie);
-    }
+        });
+      });
+      initFromHash();
+    }, 10000);
   }
 
   if (document.readyState === "loading") {

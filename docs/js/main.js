@@ -109,18 +109,30 @@
     onScrollParallax();
   }
 
-  // Animated counters
+  // Animated counters (major.bot-style count-up with commas)
+  function formatCount(value) {
+    return Math.round(value).toLocaleString("en-US");
+  }
+
   function animateCount(el) {
     const target = Number(el.dataset.count || 0);
     const suffix = el.dataset.suffix || "";
-    const duration = reduceMotion ? 0 : 1400;
+    const duration = reduceMotion ? 0 : Number(el.dataset.duration || 2000);
     const start = performance.now();
+    el.classList.add("is-counting");
     function frame(now) {
       const t = duration === 0 ? 1 : Math.min(1, (now - start) / duration);
-      const eased = 1 - Math.pow(1 - t, 3);
-      const value = Math.round(target * eased);
-      el.textContent = value.toLocaleString() + suffix;
-      if (t < 1) requestAnimationFrame(frame);
+      // easeOutExpo-ish, similar to snappy major counters
+      const eased = t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+      const value = target * eased;
+      el.textContent = formatCount(value) + suffix;
+      if (t < 1) {
+        requestAnimationFrame(frame);
+      } else {
+        el.textContent = formatCount(target) + suffix;
+        el.classList.remove("is-counting");
+        el.classList.add("is-counted");
+      }
     }
     requestAnimationFrame(frame);
   }
@@ -136,7 +148,7 @@
           }
         });
       },
-      { threshold: 0.4 }
+      { threshold: 0.35, rootMargin: "0px 0px -10% 0px" }
     );
     counters.forEach((c) => cio.observe(c));
   } else {

@@ -1,5 +1,4 @@
-
-/* Fonts from major.bot (SF Pro Display + SF Rounded) */
+/* Fonts mirrored from major.bot */
 @font-face {
   font-family: "SF Pro Display";
   src: url("../fonts/SF-Pro-Display-Regular.woff2") format("woff2");
@@ -28,22 +27,21 @@
   font-style: normal;
   font-display: swap;
 }
+/* major.bot name for SF Rounded */
 @font-face {
-  font-family: "SF Pro Rounded";
+  font-family: telegram_level;
   src: url("../fonts/SFRounded-Semibold.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "SF Pro Rounded";
+  font-family: telegram_level;
   src: url("../fonts/SFRounded-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
-
-/* Fluppy landing — layout language inspired by major.bot (no Major brand assets) */
 
 :root {
   --bg: #ffffff;
@@ -61,8 +59,8 @@
   --radius-btn: 12px;
   --radius-social: 20px;
   --nav-h: 68px;
-  --font: "SF Pro Display", -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", sans-serif;
-  --font-rounded: "SF Pro Rounded", "SF Pro Display", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font: "SF Pro Display", -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-rounded: telegram_level, "SF Pro Display", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --shadow-soft: 0 12px 40px rgba(0, 122, 255, 0.08);
 }
@@ -314,10 +312,10 @@ body.nav-lock {
 }
 
 .hero__wordmark {
-  font-family: var(--font);
+  font-family: var(--font-rounded);
   font-size: 80px;
   line-height: 92px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.03em;
   text-transform: uppercase;
 }
@@ -375,6 +373,7 @@ body.nav-lock {
 /* Buttons */
 .btn {
   box-sizing: border-box;
+  font-family: var(--font-rounded);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -464,7 +463,6 @@ body.nav-lock {
   font-size: 40px;
   line-height: 44px;
   font-weight: 700;
-  color: var(--text);
   letter-spacing: -0.02em;
   font-variant-numeric: tabular-nums;
 }
@@ -490,6 +488,7 @@ body.nav-lock {
 }
 
 .section-title {
+  font-family: var(--font-rounded);
   font-size: 40px;
   line-height: 38px;
   font-weight: 600;

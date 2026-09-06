@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Fluppy — AI assistant for Telegram channels</title>
-  <meta name="description" content="Fluppy is an AI assistant for Telegram channels: collect from your sources, rewrite to your style, approve drafts, and publish when you say so." />
+  <meta name="description" content="Fluppy is an AI assistant for Telegram channels: collect from your sources, rewrite to your style, approve drafts or switch on autopilot, and publish on your terms." />
   <meta property="og:title" content="Fluppy — AI for Telegram channels" />
-  <meta property="og:description" content="Collect from your sources, rewrite to your style, approve drafts, publish on your terms." />
+  <meta property="og:description" content="Collect from your sources, rewrite to your style, approve every draft or use autopilot — publish on your terms." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://sh0tn1k.github.io/fluppy-landing/" />
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
@@ -18,8 +18,10 @@
   <header class="nav" id="nav">
     <nav class="nav__inner" aria-label="Primary">
       <a href="#about" class="nav__link" data-section="about">About</a>
+      <a href="#included" class="nav__link" data-section="included">What you can do</a>
       <a href="#how" class="nav__link" data-section="how">How it works</a>
       <a href="#features" class="nav__link" data-section="features">Features</a>
+      <a href="#get-started" class="nav__link" data-section="get-started">Get started</a>
       <a href="#use-cases" class="nav__link" data-section="use-cases">Use cases</a>
       <a href="#faq" class="nav__link" data-section="faq">FAQ</a>
       <a href="#socials" class="nav__link" data-section="socials">Socials</a>
@@ -31,8 +33,10 @@
   <!-- Drawer is outside .nav so backdrop-filter doesn't trap position:fixed -->
   <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
     <a href="#about" class="nav__link" data-section="about">About</a>
+    <a href="#included" class="nav__link" data-section="included">What you can do</a>
     <a href="#how" class="nav__link" data-section="how">How it works</a>
     <a href="#features" class="nav__link" data-section="features">Features</a>
+    <a href="#get-started" class="nav__link" data-section="get-started">Get started</a>
     <a href="#use-cases" class="nav__link" data-section="use-cases">Use cases</a>
     <a href="#faq" class="nav__link" data-section="faq">FAQ</a>
     <a href="#socials" class="nav__link" data-section="socials">Socials</a>
@@ -53,10 +57,11 @@
           </p>
           <p class="hero__lede fade-up" style="--delay: .12s">
             Fluppy collects content from sources you choose, rewrites it to your style,
-            sends drafts for approval, and publishes when you say so.
+            and helps you publish — on your schedule.
           </p>
           <p class="hero__lede fade-up" style="--delay: .16s">
-            You stay in control of every publish. Privacy-first by design.
+            Approve every post in a forum, or switch on autopilot for hands-off publishing.
+            You’re always in charge of the mode. Privacy-first by design.
           </p>
           <div class="hero__ctas fade-up" style="--delay: .2s">
             <a class="btn btn--primary" href="#open" id="open">Open Fluppy</a>
@@ -72,8 +77,8 @@
 
       <div class="container stats fade-up" style="--delay: .24s">
         <div class="stats__item">
-          <div class="stats__value">Approve first</div>
-          <div class="stats__label">You decide what goes live</div>
+          <div class="stats__value">Approve or autopilot</div>
+          <div class="stats__label">Your call on control</div>
         </div>
         <div class="stats__item">
           <div class="stats__value">Your sources</div>
@@ -133,12 +138,13 @@
           <div class="trust__copy">
             <h2 class="trust__title">You’re in control — every step.</h2>
             <p class="trust__text">
-              Sources you choose. Style settings you configure. Drafts you approve before anything
-              goes live. No dark patterns — just a practical AI assistant for Telegram creators.
+              Sources you choose. Style settings you configure. Approve every draft — or switch on
+              autopilot when you want hands-off publishing. No dark patterns — just a practical AI
+              assistant for Telegram creators.
             </p>
           </div>
           <ul class="trust__pills" aria-label="Trust highlights">
-            <li class="trust__pill fade-up" style="--delay: .05s">Approve before publish</li>
+            <li class="trust__pill fade-up" style="--delay: .05s">Approve or autopilot</li>
             <li class="trust__pill fade-up" style="--delay: .1s">Style you set</li>
             <li class="trust__pill fade-up" style="--delay: .15s">Sources you choose</li>
             <li class="trust__pill fade-up" style="--delay: .2s">No token product</li>
@@ -152,7 +158,7 @@
       <div class="container">
         <h2 class="section-title fade-up">About Fluppy</h2>
         <p class="section-lede fade-up" style="--delay: .05s">
-          An AI assistant that lives inside Telegram — so collecting, rewriting, approval, and publish stay where you already work.
+          An AI assistant that lives inside Telegram — so collecting, rewriting, approval or autopilot, and publish stay where you already work.
         </p>
         <div class="about-grid stagger">
           <article class="card about-card fade-up">
@@ -181,10 +187,11 @@
             <div class="about-card__icon">
               <div class="lottie lottie--about" data-src="lottie/mode_approval.json" aria-hidden="true"></div>
             </div>
-            <h3>Approval stays with you</h3>
+            <h3>Approve — or go autopilot</h3>
             <p>
-              Drafts arrive for your review — typically via Telegram forums. Edit, schedule,
-              or reject with a tap. The primary flow: you approve every post before it goes live.
+              Default: drafts land in a Telegram forum for review — edit, schedule, or reject
+              before publish. Prefer hands-off? Switch on autopilot and Fluppy publishes by your
+              topics, sources, style, and schedule. Turn it off anytime.
             </p>
           </article>
           <article class="card about-card fade-up" style="--delay: .15s">
@@ -201,12 +208,61 @@
       </div>
     </section>
 
+
+    <!-- WHAT YOU CAN DO -->
+    <section class="section" id="included">
+      <div class="container">
+        <h2 class="section-title fade-up">What you can do</h2>
+        <p class="section-lede fade-up" style="--delay: .05s">
+          Real capabilities for running a channel — no hype, no self-learning claims.
+        </p>
+        <div class="included-grid stagger">
+          <article class="included-card fade-up">
+            <h3>Collect from your sources</h3>
+            <p>Watch only the channels and links you pick.</p>
+          </article>
+          <article class="included-card fade-up" style="--delay: .04s">
+            <h3>Rewrite to your style</h3>
+            <p>Drafts match the tone and voice you set.</p>
+          </article>
+          <article class="included-card fade-up" style="--delay: .08s">
+            <h3>Topics, language, frequency</h3>
+            <p>Dial in what to cover, how often, and in which language.</p>
+          </article>
+          <article class="included-card fade-up" style="--delay: .12s">
+            <h3>Schedule posts</h3>
+            <p>Publish on your timing — now or later.</p>
+          </article>
+          <article class="included-card fade-up" style="--delay: .16s">
+            <h3>Approval forum workflow</h3>
+            <p>Review every draft in Telegram before it goes live.</p>
+          </article>
+          <article class="included-card fade-up" style="--delay: .2s">
+            <h3>Autopilot</h3>
+            <p>Hands-off publishing by your rules — more convenient, less per-post control.</p>
+          </article>
+          <article class="included-card fade-up" style="--delay: .24s">
+            <h3>Regular series and polls</h3>
+            <p>Optional recurring formats when your channel needs them.</p>
+          </article>
+          <article class="included-card fade-up" style="--delay: .28s">
+            <h3>Translate to channel language</h3>
+            <p>Turn source material into posts your audience can read.</p>
+          </article>
+          <article class="included-card fade-up" style="--delay: .32s">
+            <h3>Custom source links</h3>
+            <p>Add the exact feeds and pages that matter to you.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- HOW IT WORKS -->
     <section class="section" id="how">
       <div class="container">
         <h2 class="section-title fade-up">How it works</h2>
         <p class="section-lede fade-up" style="--delay: .05s">
-          Four steps from connect to publish — always with you in the loop.
+          Four steps from connect to publish — with approval or autopilot, your choice.
         </p>
         <div class="how-grid stagger">
           <article class="how-card fade-up">
@@ -229,8 +285,8 @@
           </article>
           <article class="how-card fade-up" style="--delay: .15s">
             <div class="how-card__num">04</div>
-            <h3 class="how-card__title">Approve &amp; publish</h3>
-            <p class="how-card__text">Review drafts, edit or reject, then publish or schedule when you’re ready.</p>
+            <h3 class="how-card__title">Approve or autopilot</h3>
+            <p class="how-card__text">Review each draft — or let autopilot publish by your schedule and settings.</p>
             <div class="lottie how-card__art" data-src="lottie/onb_help_publish.json" aria-hidden="true"></div>
           </article>
         </div>
@@ -261,8 +317,8 @@
           <li class="timeline__step fade-up" style="--delay: .2s">
             <div class="timeline__rail" aria-hidden="true"><span class="timeline__marker"></span></div>
             <div class="timeline__body">
-              <h3>Approve, schedule, or publish</h3>
-              <p>Edit wording, reject what doesn’t fit, schedule a slot, or publish when it feels right — you decide.</p>
+              <h3>Approve, schedule — or autopilot</h3>
+              <p>Edit, reject, schedule, or publish when it feels right. Or switch on autopilot and Fluppy posts by your rules without waiting for each OK.</p>
             </div>
           </li>
         </ol>
@@ -303,7 +359,7 @@
             </div>
             <div class="feature-card__body">
               <h3>Approval workflow</h3>
-              <p>Drafts land for review — including via Telegram forums. Edit, schedule, or reject before anything publishes.</p>
+              <p>Recommended default: drafts land in a Telegram forum. Edit, schedule, reject, or publish — you stay in the loop on every post.</p>
             </div>
           </article>
 
@@ -312,10 +368,62 @@
               <div class="lottie lottie--feature" data-src="lottie/mode_schedule.json" aria-hidden="true"></div>
             </div>
             <div class="feature-card__body">
-              <h3>Schedule &amp; publish settings</h3>
-              <p>Set posting frequency and publish windows. Approve a draft, then post now or schedule for later.</p>
+              <h3>Autopilot</h3>
+              <p>Optional hands-off mode: Fluppy publishes by your topics, sources, style, and schedule — without waiting for each approval. More convenient, less control per post. Turn it off anytime and use approval when you want to stay in the loop.</p>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- GET STARTED -->
+    <section class="section" id="get-started">
+      <div class="container">
+        <h2 class="section-title fade-up">Get started</h2>
+        <p class="section-lede fade-up" style="--delay: .05s">
+          From open to first publish in a few taps — stay in Telegram the whole time.
+        </p>
+        <ol class="timeline start-steps fade-up" style="--delay: .08s" aria-label="How to install Fluppy">
+          <li class="timeline__step fade-up" style="--delay: .05s">
+            <div class="timeline__rail" aria-hidden="true"><span class="timeline__marker"></span></div>
+            <div class="timeline__body">
+              <h3>1. Open Fluppy in Telegram</h3>
+              <p>Launch the Mini App / bot where you already manage channels — no new app to install.</p>
+            </div>
+          </li>
+          <li class="timeline__step fade-up" style="--delay: .1s">
+            <div class="timeline__rail" aria-hidden="true"><span class="timeline__marker"></span></div>
+            <div class="timeline__body">
+              <h3>2. Tap Start</h3>
+              <p>One tap and you’re in. Fluppy is ready to help with your channel workflow.</p>
+            </div>
+          </li>
+          <li class="timeline__step fade-up" style="--delay: .15s">
+            <div class="timeline__rail" aria-hidden="true"><span class="timeline__marker"></span></div>
+            <div class="timeline__body">
+              <h3>3. Connect your channel</h3>
+              <p>Add the bot as an admin so Fluppy can draft and publish when you say so.</p>
+            </div>
+          </li>
+          <li class="timeline__step fade-up" style="--delay: .2s">
+            <div class="timeline__rail" aria-hidden="true"><span class="timeline__marker"></span></div>
+            <div class="timeline__body">
+              <h3>4. Set topics, sources, style &amp; language</h3>
+              <p>Pick what to collect, how it should sound, how often to post — your rules, your voice.</p>
+            </div>
+          </li>
+          <li class="timeline__step fade-up" style="--delay: .25s">
+            <div class="timeline__rail" aria-hidden="true"><span class="timeline__marker"></span></div>
+            <div class="timeline__body">
+              <h3>5. Choose approval or autopilot</h3>
+              <p><strong>Approval</strong> — review each draft in a forum (recommended). <strong>Autopilot</strong> — publish by your settings without waiting for each OK. Switch anytime.</p>
+            </div>
+          </li>
+        </ol>
+        <div class="start-ctas fade-up" style="--delay: .12s">
+          <a class="btn btn--primary" href="#open">Open Fluppy</a>
+          <a class="btn btn--tinted" href="#connect">Connect channel</a>
         </div>
       </div>
     </section>
@@ -394,7 +502,7 @@
               <p>
                 Fluppy is an AI assistant for Telegram channels. It runs as a Mini App and bot:
                 collect content from sources you select, rewrite drafts to the style you configure,
-                send them for approval, and publish or schedule when you decide.
+                then approve each post — or use autopilot to publish by your settings.
               </p>
             </div>
           </div>
@@ -405,17 +513,33 @@
             </button>
             <div class="faq__a" id="faq-a2" role="region" aria-labelledby="faq-q2" hidden>
               <p>
-                The primary flow is approval-first: drafts are sent for your review (including via
-                Telegram forums). You can edit, schedule, or reject — you decide what goes live.
+                You choose. In <strong>approval</strong> mode (recommended), nothing goes live without
+                you — drafts land in a Telegram forum for edit, schedule, or reject. In
+                <strong>autopilot</strong>, Fluppy publishes by your topics, sources, style, and
+                schedule without waiting for each approval. More convenient, less control per post —
+                switch back to approval anytime.
               </p>
             </div>
           </div>
           <div class="faq__item">
             <button class="faq__q" type="button" aria-expanded="false" id="faq-q3" aria-controls="faq-a3">
-              <span>Where does Fluppy run?</span>
+              <span>How do I start?</span>
               <span class="faq__chev" aria-hidden="true"></span>
             </button>
             <div class="faq__a" id="faq-a3" role="region" aria-labelledby="faq-q3" hidden>
+              <p>
+                Open Fluppy in Telegram, tap Start, connect your channel (add the bot as admin),
+                set topics, sources, style, and language, then pick approval or autopilot.
+                See <a href="#get-started">Get started</a> for the full steps.
+              </p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__q" type="button" aria-expanded="false" id="faq-q4" aria-controls="faq-a4">
+              <span>Where does Fluppy run?</span>
+              <span class="faq__chev" aria-hidden="true"></span>
+            </button>
+            <div class="faq__a" id="faq-a4" role="region" aria-labelledby="faq-q4" hidden>
               <p>
                 Inside Telegram — as a Mini App plus bot. You configure sources and style, review
                 drafts, and approve without leaving the app your audience already uses.
@@ -423,11 +547,11 @@
             </div>
           </div>
           <div class="faq__item">
-            <button class="faq__q" type="button" aria-expanded="false" id="faq-q4" aria-controls="faq-a4">
+            <button class="faq__q" type="button" aria-expanded="false" id="faq-q5" aria-controls="faq-a5">
               <span>Is there a token or crypto?</span>
               <span class="faq__chev" aria-hidden="true"></span>
             </button>
-            <div class="faq__a" id="faq-a4" role="region" aria-labelledby="faq-q4" hidden>
+            <div class="faq__a" id="faq-a5" role="region" aria-labelledby="faq-q5" hidden>
               <p>
                 No. Fluppy is a practical AI assistant for creators — not a token product.
                 Just channel workflows that respect your control and privacy.
@@ -435,11 +559,11 @@
             </div>
           </div>
           <div class="faq__item">
-            <button class="faq__q" type="button" aria-expanded="false" id="faq-q5" aria-controls="faq-a5">
+            <button class="faq__q" type="button" aria-expanded="false" id="faq-q6" aria-controls="faq-a6">
               <span>How does Fluppy match my voice?</span>
               <span class="faq__chev" aria-hidden="true"></span>
             </button>
-            <div class="faq__a" id="faq-a5" role="region" aria-labelledby="faq-q5" hidden>
+            <div class="faq__a" id="faq-a6" role="region" aria-labelledby="faq-q6" hidden>
               <p>
                 You set it. In settings you choose topics, language, posting frequency, and style —
                 Fluppy rewrites drafts to those preferences. No self-learning from reactions or past posts.
@@ -460,8 +584,8 @@
           <div class="cta-band__copy">
             <h2 class="cta-band__title">Ready to run your channel with Fluppy?</h2>
             <p class="cta-band__text">
-              Open the Mini App, connect a channel, and approve every publish —
-              collect, rewrite, review, then go live on your terms.
+              Open the Mini App, connect a channel, then approve every draft — or switch on
+              autopilot. Collect, rewrite, publish on your terms.
             </p>
             <div class="cta-band__actions">
               <a class="btn btn--primary" href="#open">Open Fluppy</a>
@@ -496,6 +620,6 @@
   </footer>
 
   <script src="js/lottie.min.js?v=6e72715" defer></script>
-  <script src="js/main.js?v=copy-20260906" defer></script>
+  <script src="js/main.js?v=autopilot-20260906" defer></script>
 </body>
 </html>

@@ -25,15 +25,16 @@
     <button class="nav__burger" id="nav-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
       <span></span><span></span><span></span>
     </button>
-    <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
-      <a href="#about" class="nav__link" data-section="about">About</a>
-      <a href="#how" class="nav__link" data-section="how">How it works</a>
-      <a href="#features" class="nav__link" data-section="features">Features</a>
-      <a href="#use-cases" class="nav__link" data-section="use-cases">Use cases</a>
-      <a href="#faq" class="nav__link" data-section="faq">FAQ</a>
-      <a href="#socials" class="nav__link" data-section="socials">Socials</a>
-    </nav>
   </header>
+  <!-- Drawer is outside .nav so backdrop-filter doesn't trap position:fixed -->
+  <nav class="nav__drawer" id="nav-drawer" aria-label="Mobile">
+    <a href="#about" class="nav__link" data-section="about">About</a>
+    <a href="#how" class="nav__link" data-section="how">How it works</a>
+    <a href="#features" class="nav__link" data-section="features">Features</a>
+    <a href="#use-cases" class="nav__link" data-section="use-cases">Use cases</a>
+    <a href="#faq" class="nav__link" data-section="faq">FAQ</a>
+    <a href="#socials" class="nav__link" data-section="socials">Socials</a>
+  </nav>
 
   <main>
     <!-- HERO -->

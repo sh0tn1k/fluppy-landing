@@ -12,6 +12,7 @@
     const setOpen = (open) => {
       nav.classList.toggle("is-open", open);
       document.body.classList.toggle("nav-lock", open);
+      document.documentElement.classList.toggle("nav-lock", open);
       burger.setAttribute("aria-expanded", open ? "true" : "false");
       burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
     };

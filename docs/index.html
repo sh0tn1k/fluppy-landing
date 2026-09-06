@@ -10,6 +10,9 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://sh0tn1k.github.io/fluppy-landing/" />
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -43,7 +46,7 @@
       <div class="container hero__grid">
         <div class="hero__copy fade-up">
           <div class="hero__brand">
-            <div class="lottie hero__logo float-soft" data-src="lottie/duck.json" data-hover-play role="img" aria-label="Fluppy duck mascot"></div>
+            <div class="lottie hero__logo" data-src="lottie/duck.json" data-hover-play role="img" aria-label="Fluppy duck mascot"></div>
             <h1 class="hero__wordmark">FLUPPY</h1>
           </div>
           <p class="hero__eyebrow fade-up" style="--delay: .05s">From tma-ai · Telegram Mini App + bot</p>
@@ -58,8 +61,8 @@
             Privacy-first by design. You stay in control of every publish.
           </p>
           <div class="hero__ctas fade-up" style="--delay: .2s">
-            <a class="btn btn--primary" href="#open">Open Fluppy</a>
-            <a class="btn btn--tinted" href="#connect">Connect channel</a>
+            <a class="btn btn--primary" href="#open" id="open">Open Fluppy</a>
+            <a class="btn btn--tinted" href="#connect" id="connect">Connect channel</a>
           </div>
         </div>
         <div class="hero__visual fade-up" style="--delay: .14s" data-parallax>
@@ -127,7 +130,7 @@
       <div class="container">
         <div class="trust__band fade-up">
           <div class="trust__mascot">
-            <div class="lottie lottie--trust float-soft" data-src="lottie/duck.json" data-hover-play aria-hidden="true"></div>
+            <div class="lottie lottie--trust" data-src="lottie/duck.json" data-hover-play aria-hidden="true"></div>
           </div>
           <div class="trust__copy">
             <h2 class="trust__title">Privacy-first. You stay in control.</h2>
@@ -453,7 +456,7 @@
     <section class="section cta-band" id="cta">
       <div class="container">
         <div class="cta-band__card fade-up">
-          <div class="cta-band__visual float-soft">
+          <div class="cta-band__visual">
             <div class="lottie lottie--cta" data-src="lottie/duck.json" data-hover-play aria-hidden="true"></div>
           </div>
           <div class="cta-band__copy">
@@ -476,19 +479,11 @@
       <div class="container">
         <h2 class="section-title fade-up">Socials</h2>
         <div class="socials">
-          <a class="social-pill fade-up" href="#open" id="open" style="--delay: 0s">
-            <div class="lottie lottie--pill" data-src="lottie/duck.json" aria-hidden="true"></div>
-            <span>Open Fluppy</span>
-          </a>
-          <a class="social-pill fade-up" href="#connect" id="connect" style="--delay: .05s">
-            <div class="lottie lottie--pill" data-src="lottie/onb_hiw_connect.json" aria-hidden="true"></div>
-            <span>Connect channel</span>
-          </a>
-          <a class="social-pill fade-up" href="https://t.me/" target="_blank" rel="noopener noreferrer" style="--delay: .1s">
+          <a class="social-pill fade-up" href="https://t.me/" target="_blank" rel="noopener noreferrer" style="--delay: 0s">
             <img class="social-pill__icon" src="images/icon-telegram.svg" alt="" width="40" height="40" />
             <span>Telegram</span>
           </a>
-          <a class="social-pill fade-up" href="https://x.com/" target="_blank" rel="noopener noreferrer" style="--delay: .15s">
+          <a class="social-pill fade-up" href="https://x.com/" target="_blank" rel="noopener noreferrer" style="--delay: .05s">
             <img class="social-pill__icon" src="images/icon-x.svg" alt="" width="40" height="40" />
             <span>X</span>
           </a>

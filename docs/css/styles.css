@@ -229,7 +229,7 @@ html.nav-lock {
   align-items: center;
   gap: 16px;
   margin-bottom: 20px;
-}
+  cursor: default;}
 
 .hero__logo {
   width: 72px;
@@ -238,12 +238,12 @@ html.nav-lock {
 }
 
 .hero__wordmark {
-  font-family: var(--font-rounded);
+  font-family: "Nunito", ui-rounded, system-ui, sans-serif;
   font-size: 80px;
   line-height: 92px;
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  font-synthesis: none;
 }
 
 .hero__eyebrow {

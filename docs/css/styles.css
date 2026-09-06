@@ -20,13 +20,6 @@
   font-style: normal;
   font-display: swap;
 }
-@font-face {
-  font-family: "SF Pro Display";
-  src: url("../fonts/SF-Pro-Display-Black.woff2") format("woff2");
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
 /* major.bot name for SF Rounded */
 @font-face {
   font-family: telegram_level;
@@ -535,7 +528,6 @@ body.nav-lock {
   height: 80px;
   border-radius: 22px;
   overflow: hidden;
-  background: var(--bg-soft);
   transition: box-shadow 0.25s ease;
 }
 
@@ -582,7 +574,6 @@ body.nav-lock {
   height: 96px;
   border-radius: 28px;
   overflow: hidden;
-  background: var(--bg);
 }
 
 .trust__copy {
@@ -655,7 +646,6 @@ body.nav-lock {
   margin-bottom: 20px;
   border-radius: 18px;
   overflow: hidden;
-  background: var(--bg);
 }
 
 .lottie--about {
@@ -860,7 +850,6 @@ body.nav-lock {
   width: 100%;
   aspect-ratio: 1 / 1;
   border-radius: 28px;
-  background: var(--bg);
   overflow: hidden;
 }
 
@@ -909,7 +898,6 @@ body.nav-lock {
   height: 80px;
   border-radius: 22px;
   overflow: hidden;
-  background: var(--bg);
   margin-bottom: 24px;
 }
 
@@ -1090,8 +1078,7 @@ body.nav-lock {
   height: 112px;
   border-radius: 32px;
   overflow: hidden;
-  background: var(--bg);
-  box-shadow: 0 8px 24px rgba(0, 122, 255, 0.15);
+  box-shadow: 0 8px 24px rgba(0, 122, 255, 0.12);
 }
 
 .cta-band__copy {
@@ -1285,10 +1272,6 @@ body.nav-lock {
   height: 100%;
   max-width: 480px;
   margin: 0 auto;
-}
-
-.lottie--strip {
-  background: var(--bg-soft);
 }
 
 .lottie--feature {

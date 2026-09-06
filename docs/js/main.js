@@ -194,6 +194,10 @@
         loop: true,
         autoplay: !hoverPlay,
         path: src,
+        rendererSettings: {
+          progressiveLoad: true,
+          hideOnTransparent: true,
+        },
       });
       lottieAnims.set(el, anim);
 
@@ -247,6 +251,18 @@
       return;
     }
 
+    // Eager-load hero / logo Lotties; lazy-load the rest
+    const eager = [];
+    const lazy = [];
+    nodes.forEach((el) => {
+      if (el.classList.contains("lottie--hero") || el.classList.contains("hero__logo")) {
+        eager.push(el);
+      } else {
+        lazy.push(el);
+      }
+    });
+    eager.forEach(initLottie);
+
     if ("IntersectionObserver" in window) {
       const lio = new IntersectionObserver(
         (entries) => {
@@ -257,11 +273,11 @@
             }
           });
         },
-        { rootMargin: "140px 0px", threshold: 0.01 }
+        { rootMargin: "180px 0px", threshold: 0.01 }
       );
-      nodes.forEach((el) => lio.observe(el));
+      lazy.forEach((el) => lio.observe(el));
     } else {
-      nodes.forEach(initLottie);
+      lazy.forEach(initLottie);
     }
   }
 

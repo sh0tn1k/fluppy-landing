@@ -446,6 +446,17 @@ body.nav-lock {
   padding-right: 0;
 }
 
+.stats__heading {
+  grid-column: 1 / -1;
+  font-family: var(--font-rounded);
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+  color: var(--text);
+}
+
 .stats__item {
   text-align: center;
   padding: 20px 12px;

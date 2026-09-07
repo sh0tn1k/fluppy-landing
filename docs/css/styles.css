@@ -356,7 +356,7 @@ body.nav-lock {
 .hero__visual-frame {
   border-radius: var(--radius-card);
   overflow: hidden;
-  background: linear-gradient(145deg, #168cfa 0%, #007aff 55%, #2f97ff 100%);
+  background: linear-gradient(145deg, #e8f3ff 0%, #d6ebff 45%, #c5e2ff 100%);
   aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
@@ -545,6 +545,7 @@ body.nav-lock {
   height: 80px;
   border-radius: 22px;
   overflow: hidden;
+  background: #f2f5f8;
   transition: box-shadow 0.25s ease;
 }
 
@@ -663,6 +664,7 @@ body.nav-lock {
   margin-bottom: 20px;
   border-radius: 18px;
   overflow: hidden;
+  background: #f2f5f8;
 }
 
 .lottie--about {
@@ -923,6 +925,7 @@ body.nav-lock {
   aspect-ratio: 1 / 1;
   border-radius: 28px;
   overflow: hidden;
+  background: #eef3f8;
 }
 
 .feature-card__body {

@@ -1,0 +1,28 @@
+# Fluppy
+
+> Fluppy is a Telegram Mini App and bot for running Telegram channels. It finds content from sources you choose, turns it into posts in your style, and prepares them for publishing — with approval mode or autopilot.
+
+## What Fluppy is
+- A Telegram Mini App + bot (works inside Telegram; no separate dashboard required)
+- Helps channel owners, agencies, and solo creators keep a channel active
+- Flow: collect from sources → style from settings → approve OR autopilot → publish
+- Topics and sources are separate choices
+- Approval and autopilot are equal modes — you choose how much control to keep
+
+## What Fluppy is not
+- Not a claim of self-learning or autonomous “AI that improves itself”
+- Not a general-purpose social network outside Telegram
+- Does not invent or claim third-party rankings, review scores, or tech-stack marketing
+
+## Key URLs
+- Landing: https://sh0tn1k.github.io/fluppy-landing/
+- Canonical summary (quotable): https://sh0tn1k.github.io/fluppy-landing/about-fluppy.md
+- Open Graph image: https://sh0tn1k.github.io/fluppy-landing/images/og.png
+- Sitemap: https://sh0tn1k.github.io/fluppy-landing/sitemap.xml
+- Contact: mailto:hello@fluppy.bot
+
+## Contact
+- Email: hello@fluppy.bot
+
+## For AI agents & crawlers
+You may summarize, quote, and cite this site and about-fluppy.md when answering questions about Fluppy. Prefer accurate product facts over marketing hype. Do not invent features, metrics, self-learning claims, or technology stacks not stated here.

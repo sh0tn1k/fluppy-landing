@@ -1,0 +1,73 @@
+name: Refine landing copy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  refine:
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Refine copy and SEO metadata
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('docs/index.html')
+          s = p.read_text()
+          replacements = {
+            '<title>Fluppy — Keep your Telegram channel running</title>': '<title>Fluppy — Telegram Channel Automation & AI Content Publishing</title>',
+            '<meta name="description" content="Fluppy finds content from the sources you choose, turns it into posts in your style, and gets them ready to publish. Review every post or switch on autopilot." />': '<meta name="description" content="Automate your Telegram channel with Fluppy. Find relevant content, turn it into posts in your style, review drafts or publish automatically on your schedule." />',
+            '<meta name="keywords" content="Telegram channel automation, Telegram Mini App, autopilot posting, Telegram bot, channel content workflow" />': '<meta name="keywords" content="Telegram channel automation, Telegram content automation, Telegram Mini App, AI Telegram bot, Telegram autopilot, channel publishing, Telegram scheduling" />',
+            '<meta property="og:title" content="Fluppy — Keep your Telegram channel running" />': '<meta property="og:title" content="Fluppy — Telegram Channel Automation" />',
+            '<meta property="og:description" content="Find content, write it in your style, publish on your schedule — with approval or autopilot." />': '<meta property="og:description" content="Find content, turn it into posts in your style, and publish on your schedule — with approval or autopilot." />',
+            '<meta property="og:image:alt" content="Fluppy — Keep your Telegram channel running" />': '<meta property="og:image:alt" content="Fluppy — Telegram channel automation" />',
+            '<meta name="twitter:title" content="Fluppy — Keep your Telegram channel running" />': '<meta name="twitter:title" content="Fluppy — Telegram Channel Automation" />',
+            '<meta name="twitter:description" content="Find content, write it in your style, publish on your schedule — with approval or autopilot." />': '<meta name="twitter:description" content="Find content, turn it into posts in your style, and publish on your schedule — with approval or autopilot." />',
+            '<meta name="twitter:image:alt" content="Fluppy — Keep your Telegram channel running" />': '<meta name="twitter:image:alt" content="Fluppy — Telegram channel automation" />',
+            '<link rel="canonical" href="https://sh0tn1k.github.io/fluppy-landing/" />': '<link rel="canonical" href="https://sh0tn1k.github.io/fluppy-landing/" />\n  <link rel="sitemap" type="application/xml" href="https://sh0tn1k.github.io/fluppy-landing/sitemap.xml" />',
+            'Keep your Telegram channel running. Without doing every post yourself.': 'Keep your Telegram channel active without writing every post yourself.',
+            'Fluppy finds content from the sources you choose, turns it into posts in your style, and gets them ready to publish.': 'Fluppy finds relevant content, turns it into posts in your style, and gets them ready to publish.',
+            'Review every post yourself — or switch on autopilot when you want Fluppy to handle the routine.': 'Review every post yourself — or let Fluppy handle the routine on autopilot.',
+            '<h2 class="section-title fade-up">Built for Telegram</h2>': '<h2 class="section-title fade-up">Telegram channel automation, built around your workflow</h2>',
+            'Stop doing the same work for every post.': 'Stop spending your time finding, rewriting and scheduling posts.',
+            'You decide what the channel should cover and how it should sound. Fluppy handles the rest.': 'You decide what the channel should cover and how it should sound. Fluppy handles the routine.',
+            '<h3>Review everything</h3>': '<h3>Review before publishing</h3>',
+            'Set your style once and use it across every draft.': 'Set your language, tone and format once and use the same style across your channel.',
+            '<h3>Write it in your style</h3>': '<h3>Turn it into your posts</h3>',
+            '<h3>Publish on your schedule</h3>': '<h3>Keep your channel active</h3>',
+            'Post now or schedule content for later. Set how often your channel should publish.': 'Publish now, schedule content for later, or set how often your channel should publish.',
+            '<h3>Translate for your audience</h3>': '<h3>Write for your audience</h3>',
+            '<h2 class="section-title fade-up">How it works</h2>': '<h2 class="section-title fade-up">How Telegram channel automation works</h2>',
+            '<h3>02 — Tell Fluppy what to follow</h3>': '<h3>02 — Choose topics and sources</h3>',
+            'Choose one of the ready-made topics or create your own. Add your sources if needed.': 'Choose ready-made topics or create your own. Add the sources you want Fluppy to follow.',
+            '<h2 class="section-title fade-up">Everything your channel needs to stay active</h2>': '<h2 class="section-title fade-up">Everything you need to keep a Telegram channel active</h2>',
+            'Use Fluppy\'s sources or add your own feeds and pages.': 'Use Fluppy\'s sources or add your own feeds, channels and pages.',
+            'No new dashboard. No complicated setup.': 'Connect your channel, choose what Fluppy should follow, and set how you want your posts written.',
+            '<h3>4. Choose how much control you want</h3>': '<h3>4. Choose your level of control</h3>',
+            '<h2 class="section-title fade-up">Telegram channel automation FAQ</h2>': '<h2 class="section-title fade-up">Telegram channel automation FAQ</h2>',
+            '<h2 class="cta-band__title">Your channel doesn\'t have to run itself.</h2>': '<h2 class="cta-band__title">Keep your channel active. Let Fluppy handle the routine.</h2>',
+            'Let Fluppy handle the repetitive work.': 'You choose the topics.<br />You define the style.<br />You decide when to automate.',
+            'You choose the topics.<br />\n              You define the style.<br />\n              You decide how much control to keep.': '',
+            '© <span id="year"></span> Fluppy. Keep your Telegram channel running.': '© <span id="year"></span> Fluppy. Telegram channel automation.'
+          }
+          for old, new in replacements.items():
+              if old in s:
+                  s = s.replace(old, new)
+          # Strengthen the machine-readable product description without changing the visible design.
+          s = s.replace('Telegram Mini App and bot that helps you run a channel: find content from chosen sources, turn it into posts in your style, and publish with approval or autopilot.', 'Telegram Mini App and bot for automating Telegram channel content: find relevant sources, create posts in your style, review drafts, schedule publishing and run on autopilot.')
+          p.write_text(s)
+          PY
+
+      - name: Commit refined landing
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/index.html
+          git diff --cached --quiet && exit 0
+          git commit -m 'Refine landing copy and SEO [skip ci]'
+          git push

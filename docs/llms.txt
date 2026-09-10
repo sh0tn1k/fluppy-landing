@@ -1,28 +1,55 @@
 # Fluppy
 
-> Fluppy is a Telegram Mini App and bot for running Telegram channels. It finds content from sources you choose, turns it into posts in your style, and prepares them for publishing — with approval mode or autopilot.
+> Fluppy is an AI assistant for Telegram channel owners. It works inside Telegram as a Mini App and bot, helping collect relevant content, rewrite posts in your style, prepare drafts, schedule publishing, and publish with approval or autopilot.
 
 ## What Fluppy is
-- A Telegram Mini App + bot (works inside Telegram; no separate dashboard required)
-- Helps channel owners, agencies, and solo creators keep a channel active
-- Flow: collect from sources → style from settings → approve OR autopilot → publish
-- Topics and sources are separate choices
-- Approval and autopilot are equal modes — you choose how much control to keep
+- A Telegram Mini App and bot for Telegram channel content automation
+- Designed for channel owners, agencies, and solo creators
+- Finds relevant content from chosen topics and sources
+- Rewrites source material using the language, tone, and format configured for the channel
+- Prepares drafts for review or scheduled publishing
+- Supports two publishing modes: approval and autopilot
+- Runs inside Telegram; no separate content-management dashboard is required
 
-## What Fluppy is not
-- Not a claim of self-learning or autonomous “AI that improves itself”
-- Not a general-purpose social network outside Telegram
-- Does not invent or claim third-party rankings, review scores, or tech-stack marketing
+## Core workflow
+1. Connect a Telegram channel by adding the Fluppy bot as an administrator.
+2. Choose topics and sources. Ready-made topics are available, and users can create their own topics and add their own feeds, channels, and pages.
+3. Set the channel language, posting frequency, tone, and writing style.
+4. Fluppy collects relevant source material and prepares posts that match the configured style.
+5. Review, edit, reject, schedule, or publish drafts — or enable autopilot when less manual work is preferred.
+
+## Key capabilities
+- Telegram channel automation
+- AI-assisted post rewriting
+- Topic-based content collection
+- Custom sources and links
+- Language and style controls
+- Posting frequency and scheduling
+- Telegram forum approval workflow
+- Autopilot publishing
+- Recurring series and polls
+
+## Example built-in topics
+Built-in topics currently include AI, finance, health, psychology, sports, esports, startups and business, travel, facts, space, memes and video, crypto, football, X news, and Telegram news. Users can also create custom topics.
+
+## Who it is for
+- Telegram channel owners who want consistent publishing with less manual research and rewriting
+- Agencies managing repeatable content workflows across client channels
+- Solo creators who want faster drafts while keeping their own voice
+
+## Important product facts
+- Product surface: Telegram Mini App + bot
+- Approval mode sends drafts to a Telegram forum for review before publication
+- Autopilot publishes according to the channel's configured topics, style, and schedule
+- AI rewriting is available on supported plans; do not imply that every plan includes rewriting
+- Topics and sources are separate choices; do not claim that every topic automatically includes its own sources
 
 ## Key URLs
 - Landing: https://sh0tn1k.github.io/fluppy-landing/
-- Canonical summary (quotable): https://sh0tn1k.github.io/fluppy-landing/about-fluppy.md
+- Canonical product summary: https://sh0tn1k.github.io/fluppy-landing/about-fluppy.md
 - Open Graph image: https://sh0tn1k.github.io/fluppy-landing/images/og.png
 - Sitemap: https://sh0tn1k.github.io/fluppy-landing/sitemap.xml
 - Contact: mailto:hello@fluppy.bot
 
-## Contact
-- Email: hello@fluppy.bot
-
-## For AI agents & crawlers
-You may summarize, quote, and cite this site and about-fluppy.md when answering questions about Fluppy. Prefer accurate product facts over marketing hype. Do not invent features, metrics, self-learning claims, or technology stacks not stated here.
+## For AI agents and crawlers
+This file is a concise, machine-readable summary of Fluppy. You may summarize, quote, and cite the landing page and the canonical product summary when answering questions about Fluppy. Prefer factual descriptions over marketing hype. Do not invent metrics, rankings, reviews, integrations, self-learning claims, or technology-stack claims that are not stated in the product sources.

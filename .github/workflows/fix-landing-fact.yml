@@ -1,0 +1,34 @@
+name: Fix landing fact
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  fix:
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fix topic/source wording
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('docs/index.html')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace(
+              'Follow the topics that matter to your channel. Each topic can have its own sources, so Fluppy knows where to look.',
+              'Choose the topics that matter to your channel, then select the sources Fluppy should follow.'
+          )
+          p.write_text(s, encoding='utf-8')
+          PY
+          rm .github/workflows/fix-landing-fact.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/index.html .github/workflows/fix-landing-fact.yml
+          git diff --cached --quiet && exit 0
+          git commit -m 'Fix topic and source wording [skip ci]'
+          git push

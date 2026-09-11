@@ -500,7 +500,7 @@ body.nav-lock {
 }
 
 .section-title {
-  font-family: var(--font-rounded);
+  font-family: var(--font);
   font-size: 40px;
   line-height: 38px;
   font-weight: 600;
